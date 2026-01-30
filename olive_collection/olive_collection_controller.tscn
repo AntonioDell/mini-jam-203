@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4b7cvlcguvof"]
+
+[ext_resource type="Script" uid="uid://bm06w5vr0knq7" path="res://olive_collection/olive_collection_controller.gd" id="1_70bil"]
+
+[node name="OliveCollectionController" type="Node" unique_id=1931790365 groups=["OliveCollectionController"]]
+script = ExtResource("1_70bil")

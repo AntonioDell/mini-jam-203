@@ -19,6 +19,8 @@ func _ready():
 	if not _load_save_game():
 		save_game_data = SaveGameData.new()
 		save()
+	
+	await get_tree().process_frame
 	game_loaded.emit(save_game_data)
 
 func _load_save_game() -> bool:

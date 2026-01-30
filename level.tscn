@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://btbgpiodf52hp"]
 
-[ext_resource type="Texture2D" uid="uid://bftdboxt4ghgd" path="res://icon.svg" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://x6nfo0koaxjj" path="res://level.gd" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://b4b7cvlcguvof" path="res://olive_collection/olive_collection_controller.tscn" id="2_0b4ue"]
+[ext_resource type="PackedScene" uid="uid://dl4d6w6yy6jvs" path="res://olive_collection/olive_tree.tscn" id="2_vonw3"]
+[ext_resource type="Script" uid="uid://dr2xkieskyly1" path="res://holder_resource.gd" id="3_oi3di"]
+[ext_resource type="PackedScene" uid="uid://dnhpqe5uidffi" path="res://olive_collection/olive_destination.tscn" id="5_f2txt"]
+
+[sub_resource type="Resource" id="Resource_oi3di"]
+script = ExtResource("3_oi3di")
+metadata/_custom_type_script = "uid://dr2xkieskyly1"
 
 [node name="Level" type="Node2D" unique_id=800733794]
+script = ExtResource("1_vonw3")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1922850095]
-position = Vector2(505, 295)
-texture = ExtResource("1_u52ul")
+[node name="OliveCollectionController" parent="." unique_id=1931790365 instance=ExtResource("2_0b4ue")]
+
+[node name="OliveTreePlacement" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
+position = Vector2(413, 352)
+olives = SubResource("Resource_oi3di")
+
+[node name="OliveDestination" parent="." unique_id=1043901175 instance=ExtResource("5_f2txt")]
+position = Vector2(574, 326)

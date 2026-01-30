@@ -16,7 +16,6 @@ func _ready():
 	%StartButton.pressed.connect(start_button_pressed.emit)
 	
 	GlobalSaveGameController.game_loaded.connect(_init_from_save_game)
-	_init_from_save_game(GlobalSaveGameController.save_game_data)
 	
 	%MuteCheckBox.toggled.connect(_on_mute_checkbox_toggled)
 	%MusicSlider.value_changed.connect(GlobalSettingsController.change_music_volume)

@@ -18,8 +18,6 @@ func toggle_muted():
 
 func _ready():
 	GlobalSaveGameController.game_loaded.connect(_init_settings_data)
-	if GlobalSaveGameController.save_game_data:
-		_init_settings_data(GlobalSaveGameController.save_game_data)
 
 
 func _set_settings_to_audio_busses(skip_save: bool = false):

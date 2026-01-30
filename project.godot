@@ -24,6 +24,10 @@ buses/default_bus_layout="uid://doy0q8hi1nxk0"
 GlobalSaveGameController="*uid://ckdjbfct2hgg"
 GlobalSettingsController="*uid://dfx2atictc2u"
 
+[global_group]
+
+OliveCollectionController=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

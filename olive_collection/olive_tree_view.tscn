@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://be0ple86o827j"]
+
+[ext_resource type="Script" uid="uid://qjmxvvct6rit" path="res://olive_collection/olive_tree_view.gd" id="1_mj5ss"]
+
+[sub_resource type="Gradient" id="Gradient_r8oxo"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.49411765, 0.54509807, 0.29411766, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8vonl"]
+gradient = SubResource("Gradient_r8oxo")
+
+[node name="OliveTreeView" type="Node2D" unique_id=202196002]
+script = ExtResource("1_mj5ss")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1564127246]
+texture = SubResource("GradientTexture2D_8vonl")
