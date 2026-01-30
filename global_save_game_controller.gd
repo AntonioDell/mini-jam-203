@@ -4,14 +4,15 @@ extends Node
 signal game_loaded(loaded_data: SaveGameData)
 
 
-const SAVE_GAME_PATH = "user://savegame.save"
+const SAVE_GAME_PATH = "user://savegamedata.tres"
 
 
 @export var save_game_data: SaveGameData
 
 
 func save():
-	ResourceSaver.save(save_game_data, SAVE_GAME_PATH)
+	var err := ResourceSaver.save(save_game_data, SAVE_GAME_PATH)
+	print("Save status: %s" % err)
 
 
 func _ready():
