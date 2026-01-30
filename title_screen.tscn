@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://bau66xdqlk1tu"]
+
+[ext_resource type="Script" uid="uid://dwu7iddkweao2" path="res://title_screen.gd" id="1_ak2if"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="2_ig5kc"]
+
+[node name="MainMenu" type="Node" unique_id=1152096125]
+script = ExtResource("1_ak2if")
+
+[node name="UI" type="Control" parent="." unique_id=2137649804]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI" unique_id=1345003954]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ig5kc")
+theme_type_variation = &"MainMenu"
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/PanelContainer" unique_id=1614554054]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/PanelContainer/CenterContainer" unique_id=1779092969]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="TitleLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer2" unique_id=691636764]
+layout_mode = 2
+theme = ExtResource("2_ig5kc")
+theme_type_variation = &"Title"
+text = "the olive game"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="MainMenuButtonsContainer" type="VBoxContainer" parent="UI/PanelContainer/CenterContainer/VBoxContainer2" unique_id=2096894732]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/MainMenuButtonsContainer" unique_id=279831402]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_ig5kc")
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/MainMenuButtonsContainer" unique_id=1118720242]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/MainMenuButtonsContainer" unique_id=1345888662]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="SettingsContainer" type="VBoxContainer" parent="UI/PanelContainer/CenterContainer/VBoxContainer2" unique_id=892171936]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="SettingsGrid" type="GridContainer" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer" unique_id=670581731]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="MusicLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=808948150]
+layout_mode = 2
+text = "Music"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MusicSlider" type="HSlider" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=740533351]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme = ExtResource("2_ig5kc")
+max_value = 1.0
+step = 0.01
+
+[node name="SfxLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=944574381]
+layout_mode = 2
+text = "Sfx"
+fit_content = true
+autowrap_mode = 0
+
+[node name="SfxSlider" type="HSlider" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=536405331]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="MuteLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=458994463]
+layout_mode = 2
+
+[node name="MuteCheckBox" type="CheckBox" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=978368746]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Mute"
+
+[node name="SettingsBackButton" type="Button" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer" unique_id=352160047]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Go Back"

@@ -15,6 +15,15 @@ run/main_scene="uid://bti1hjmqepxse"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://doy0q8hi1nxk0"
+
+[autoload]
+
+GlobalSaveGameController="*uid://ckdjbfct2hgg"
+GlobalSettingsController="*uid://dfx2atictc2u"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
