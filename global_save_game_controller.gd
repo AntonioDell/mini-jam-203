@@ -23,6 +23,8 @@ func _ready():
 
 func _load_save_game() -> bool:
 	if ResourceLoader.exists(SAVE_GAME_PATH, "SaveGameData"):
+		print("Resource exists, loading...")
 		save_game_data = ResourceLoader.load(SAVE_GAME_PATH, "SaveGameData")
+		print("Loaded:\n'%s'" % JSON.stringify(save_game_data.settings_data))
 		return true
 	return false
