@@ -6,12 +6,25 @@
 [ext_resource type="Script" uid="uid://dr2xkieskyly1" path="res://holder_resource.gd" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://dnhpqe5uidffi" path="res://olive_collection/olive_destination.tscn" id="5_f2txt"]
 
+[sub_resource type="Gradient" id="Gradient_f2txt"]
+offsets = PackedFloat32Array(0.8429561)
+colors = PackedColorArray(0.94509804, 0.94509804, 0.9019608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1ainy"]
+gradient = SubResource("Gradient_f2txt")
+width = 1152
+height = 648
+
 [sub_resource type="Resource" id="Resource_oi3di"]
 script = ExtResource("3_oi3di")
 metadata/_custom_type_script = "uid://dr2xkieskyly1"
 
 [node name="Level" type="Node2D" unique_id=800733794]
 script = ExtResource("1_vonw3")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1954753282]
+texture = SubResource("GradientTexture2D_1ainy")
+centered = false
 
 [node name="OliveCollectionController" parent="." unique_id=1931790365 instance=ExtResource("2_0b4ue")]
 
