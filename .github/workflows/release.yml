@@ -100,7 +100,7 @@ jobs:
     needs: [export-windows, export-linux, export-web]
     steps:
       - name: Downlaod artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v7
       - name: Check
         run: |
           ls -la
