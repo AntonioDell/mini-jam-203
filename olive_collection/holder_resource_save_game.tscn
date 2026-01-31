@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://begi2xobvn5km"]
-
-[ext_resource type="Script" uid="uid://cnuxh17l3df5l" path="res://olive_collection/holder_resource_save_game.gd" id="1_dkhru"]
-
-[node name="HolderResourceSaveGame" type="Node" unique_id=1430807298]
-script = ExtResource("1_dkhru")

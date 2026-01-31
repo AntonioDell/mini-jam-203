@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ch17otr6xvp4j"]
+
+[ext_resource type="Script" uid="uid://briqp75h7hmrv" path="res://travel/olive_transporter_path.gd" id="1_2ys06"]
+
+[sub_resource type="Curve2D" id="Curve2D_v4n7a"]
+
+[node name="OliveTransporterPath" type="Path2D" unique_id=602618642]
+curve = SubResource("Curve2D_v4n7a")
+script = ExtResource("1_2ys06")

@@ -11,6 +11,9 @@ var olive_destinations: Array[HolderResource] = []
 func register_desitnation(destination: HolderResource):
 	olive_destinations.append(destination)
 
+func unregister_destination(destination: HolderResource):
+	olive_destinations.erase(destination)
+
 func try_collect(source: HolderResource) -> bool:
 	var destination = olive_destinations.filter(func(d: HolderResource): return d.amount < destination_max_amount)
 	if source.amount > 0 and not destination.is_empty():

@@ -6,7 +6,7 @@ extends Node2D
 
 
 func _ready():
-	olives = $OliveTreeSaveGame.register_holder_resource(name, olives)
+	olives = GlobalSaveGameController.register_holder_resource(name, olives)
 	_setup_children()
 
 func _setup_children():

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4d6w6yy6jvs" path="res://olive_collection/olive_tree.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://dr2xkieskyly1" path="res://holder_resource.gd" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://dnhpqe5uidffi" path="res://olive_collection/olive_transporter.tscn" id="5_f2txt"]
+[ext_resource type="Script" uid="uid://c3kctp1wm3wbg" path="res://travel/travel_resource.gd" id="6_1ainy"]
 
 [sub_resource type="Gradient" id="Gradient_f2txt"]
 offsets = PackedFloat32Array(0.8429561)
@@ -20,9 +21,19 @@ script = ExtResource("3_oi3di")
 amount = 25
 metadata/_custom_type_script = "uid://dr2xkieskyly1"
 
+[sub_resource type="Curve2D" id="Curve2D_n6hdu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 360, 368, 0, 0, 0, 0, 465, 368, 0, 0, 0, 0, 554, 379, 0, 0, 0, 0, 651, 360)
+}
+point_count = 4
+
 [sub_resource type="Resource" id="Resource_f2txt"]
 script = ExtResource("3_oi3di")
 metadata/_custom_type_script = "uid://dr2xkieskyly1"
+
+[sub_resource type="Resource" id="Resource_n6hdu"]
+script = ExtResource("6_1ainy")
+metadata/_custom_type_script = "uid://c3kctp1wm3wbg"
 
 [node name="Level" type="Node2D" unique_id=800733794]
 script = ExtResource("1_vonw3")
@@ -38,6 +49,10 @@ destination_max_amount = 10
 position = Vector2(122, 499)
 olives = SubResource("Resource_1ainy")
 
-[node name="OliveTransporter" parent="." unique_id=1043901175 instance=ExtResource("5_f2txt")]
-position = Vector2(287, 363)
+[node name="OliveTransporterPath" type="Path2D" parent="." unique_id=980445474]
+curve = SubResource("Curve2D_n6hdu")
+
+[node name="OliveTransporter" parent="OliveTransporterPath" unique_id=1043901175 instance=ExtResource("5_f2txt")]
+position = Vector2(360, 368)
 olives = SubResource("Resource_f2txt")
+travel = SubResource("Resource_n6hdu")
