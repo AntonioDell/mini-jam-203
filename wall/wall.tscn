@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cyo02kph1qupo"]
+
+[ext_resource type="Script" uid="uid://dwk6es4p40trf" path="res://wall/wall.gd" id="1_sef87"]
+[ext_resource type="Script" uid="uid://b83aoonfknm8h" path="res://wall/wall_pour_oil_decrementer.gd" id="2_1w5xe"]
+[ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="2_6wk7l"]
+[ext_resource type="Script" uid="uid://blubm2go7jos6" path="res://wall/wall_view.gd" id="3_8s4k5"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="3_qswlj"]
+
+[sub_resource type="Curve" id="Curve_1w5xe"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_sef87"]
+offsets = PackedFloat32Array(0.28486648)
+colors = PackedColorArray(0.34781694, 0.34781697, 0.3478169, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6wk7l"]
+gradient = SubResource("Gradient_sef87")
+height = 300
+
+[node name="Wall" type="Node2D" unique_id=2078438762]
+script = ExtResource("1_sef87")
+
+[node name="WallPourOilDecrementer" type="Node" parent="." unique_id=1277656880]
+script = ExtResource("2_1w5xe")
+accelleration_curve = SubResource("Curve_1w5xe")
+
+[node name="WallView" type="Sprite2D" parent="." unique_id=363176901]
+texture = SubResource("GradientTexture2D_6wk7l")
+script = ExtResource("3_8s4k5")
+
+[node name="Label" type="RichTextLabel" parent="WallView" unique_id=2117384614]
+offset_left = -78.0
+offset_top = -184.0
+offset_right = 43.0
+offset_bottom = -150.0
+theme = ExtResource("3_qswlj")
+text = "Stored Oil:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StoredOilCount" type="RichTextLabel" parent="WallView" unique_id=848544281]
+offset_left = 52.0
+offset_top = -184.0
+offset_right = 87.0
+offset_bottom = -150.0
+theme = ExtResource("3_qswlj")
+text = "0"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("2_6wk7l")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickInputArea" unique_id=2021136216]
+polygon = PackedVector2Array(-32, -150, -32, 150, 32, 150, 32, -150)

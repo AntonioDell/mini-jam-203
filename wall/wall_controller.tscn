@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bpgkxqylobu5h"]
+
+[ext_resource type="Script" uid="uid://ndvk7olmtqm4" path="res://wall/wall_controller.gd" id="1_3fy48"]
+
+[node name="WallController" type="Node" unique_id=296820452 groups=["WallController"]]
+script = ExtResource("1_3fy48")

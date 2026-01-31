@@ -24,6 +24,8 @@ func transfer_olives_to_refinery(olive_source: HolderResource):
 		olive_source.amount_change_failed.emit()
 
 func refine_oil():
+	var boiling_station_controller: BoilingStationController = get_tree().get_first_node_in_group("BoilingStationController")
+	if not boiling_station_controller.can_accept_oil_barrel(): return
 	if refinery.olives.amount < refinery_capacity: return
 	
 	var obt = oil_barrel_transporter_scene.instantiate()

@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dl4d6w6yy6jvs" path="res://olive_collection/olive_tree.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://dr2xkieskyly1" path="res://holder_resource.gd" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://b1rosb3f76rkd" path="res://boiling/boiling_station_controller.tscn" id="4_8cye3"]
+[ext_resource type="PackedScene" uid="uid://bpgkxqylobu5h" path="res://wall/wall_controller.tscn" id="5_2orkt"]
 [ext_resource type="PackedScene" uid="uid://dnhpqe5uidffi" path="res://travel/olive_transporter.tscn" id="5_f2txt"]
 [ext_resource type="PackedScene" uid="uid://rk807chw8e65" path="res://oil_refinery/oil_refinery.tscn" id="7_n6hdu"]
 [ext_resource type="PackedScene" uid="uid://ci4gdrt0lv6yn" path="res://boiling/boiling_station.tscn" id="9_8cye3"]
+[ext_resource type="PackedScene" uid="uid://cyo02kph1qupo" path="res://wall/wall.tscn" id="10_8cye3"]
 
 [sub_resource type="Gradient" id="Gradient_f2txt"]
 offsets = PackedFloat32Array(0.8429561)
@@ -42,7 +44,7 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_8cye3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 459, 382, 0, 0, 0, 0, 660, 409)
+"points": PackedVector2Array(0, 0, 0, 0, 432, 400, 0, 0, 0, 0, 548, 461)
 }
 point_count = 2
 
@@ -59,6 +61,8 @@ oil_barrel_transporter_path = NodePath("../OilBarrelTransporterPath")
 [node name="OliveCollectionController" parent="." unique_id=1931790365 instance=ExtResource("2_0b4ue")]
 
 [node name="BoilingStationController" parent="." unique_id=1168486281 instance=ExtResource("4_8cye3")]
+
+[node name="WallController" parent="." unique_id=296820452 instance=ExtResource("5_2orkt")]
 
 [node name="OliveTreePlacement" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
 position = Vector2(122, 499)
@@ -85,4 +89,7 @@ position = Vector2(348, 368)
 curve = SubResource("Curve2D_8cye3")
 
 [node name="BoilingStation" parent="." unique_id=1758307242 instance=ExtResource("9_8cye3")]
-position = Vector2(730, 408)
+position = Vector2(666, 447)
+
+[node name="Wall" parent="." unique_id=2078438762 instance=ExtResource("10_8cye3")]
+position = Vector2(836, 347)

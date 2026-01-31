@@ -4,7 +4,6 @@ extends Node
 
 @export var max_heating := 100
 
-
 var oil_barrel_destination: HolderResource
 
 func register_oil_barrel_destination(oil_barrel_destination: HolderResource):
@@ -13,4 +12,6 @@ func register_oil_barrel_destination(oil_barrel_destination: HolderResource):
 func transfer_oil_barrel_to_boiler(oil_barrel: HolderResource):
 	oil_barrel_destination.amount += oil_barrel.amount
 	oil_barrel.amount = 0
-	
+
+func can_accept_oil_barrel() -> bool:
+	return oil_barrel_destination.amount == 0

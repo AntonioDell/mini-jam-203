@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c74c4jlxg4wv1" path="res://boiling/boiling_station_view.gd" id="1_rhyhh"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="2_ev050"]
 [ext_resource type="Script" uid="uid://dntnxsnbpww2" path="res://boiling/boiling_station_heating_incrementer.gd" id="2_fq6gp"]
+[ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="5_ccy1n"]
 
 [sub_resource type="Curve" id="Curve_fq6gp"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -15,6 +16,9 @@ colors = PackedColorArray(0.8509804, 0.7607843, 0.63529414, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fq6gp"]
 gradient = SubResource("Gradient_fvl80")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvmb7"]
+size = Vector2(64, 64)
 
 [node name="BoilingStation" type="Node2D" unique_id=1758307242]
 script = ExtResource("1_fvl80")
@@ -48,3 +52,8 @@ text = "Empty"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("5_ccy1n")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=98707497]
+shape = SubResource("RectangleShape2D_lvmb7")

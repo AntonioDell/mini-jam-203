@@ -14,6 +14,7 @@ func _ready():
 	var controller: BoilingStationController = get_tree().get_first_node_in_group("BoilingStationController")
 	controller.register_oil_barrel_destination(oil_barrel)
 	
+	$ClickInputArea.input_area_clicked.connect(_on_input_area_clicked)
 	$BoilingStationView.setup(oil_barrel, heat_applied, controller.max_heating)
 	$BoilingStationHeatingIncrementer.setup(heat_applied, 10.0, controller.max_heating)
 	
@@ -28,3 +29,8 @@ func _on_oil_barrel_amount_changed(amount: int):
 
 func _on_heating_done():
 	oil_barrel.amount = 0
+
+func _on_input_area_clicked():
+	var wall_controller: WallController = get_tree().get_first_node_in_group("WallController")
+	wall_controller.try_transfer_heated_oil_to_destination(oil_barrel, heat_applied)
+		
