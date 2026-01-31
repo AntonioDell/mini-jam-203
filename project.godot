@@ -25,6 +25,11 @@ GlobalSaveGameController="*uid://ckdjbfct2hgg"
 GlobalSettingsController="*uid://dfx2atictc2u"
 GlobalErrorHandler="*uid://d03gbfl8om7ty"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+
 [global_group]
 
 OliveCollectionController=""
