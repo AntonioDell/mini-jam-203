@@ -2,6 +2,9 @@ class_name BoilingStationController
 extends Node
 
 
+@export var max_heating := 100
+
+
 var oil_barrel_destination: HolderResource
 
 func register_oil_barrel_destination(oil_barrel_destination: HolderResource):

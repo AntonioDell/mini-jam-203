@@ -2,6 +2,9 @@ class_name OliveTransporter
 extends PathFollow2D
 
 
+@export var time_to_arrival := 1.0
+
+
 var olives: HolderResource = HolderResource.new()
 var travel: TravelResource = TravelResource.new()
 
@@ -25,7 +28,7 @@ func _setup_travel():
 
 func _setup_children():
 	$OliveTransporterView.setup(olives, travel)
-	$OliveTransporterTravelIncrementer.setup(travel, 5.0)
+	$OliveTransporterTravelIncrementer.setup(travel, time_to_arrival)
 	$ClickInputArea.input_area_clicked.connect(_on_transporter_clicked)
 
 func _on_transporter_clicked():

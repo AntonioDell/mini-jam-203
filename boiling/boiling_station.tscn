@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://b6jbs42n1v4x5" path="res://boiling/boiling_station.gd" id="1_fvl80"]
 [ext_resource type="Script" uid="uid://c74c4jlxg4wv1" path="res://boiling/boiling_station_view.gd" id="1_rhyhh"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="2_ev050"]
+[ext_resource type="Script" uid="uid://dntnxsnbpww2" path="res://boiling/boiling_station_heating_incrementer.gd" id="2_fq6gp"]
+
+[sub_resource type="Curve" id="Curve_fq6gp"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_fvl80"]
 offsets = PackedFloat32Array(0.18694362)
@@ -13,6 +18,10 @@ gradient = SubResource("Gradient_fvl80")
 
 [node name="BoilingStation" type="Node2D" unique_id=1758307242]
 script = ExtResource("1_fvl80")
+
+[node name="BoilingStationHeatingIncrementer" type="Node" parent="." unique_id=751099947]
+script = ExtResource("2_fq6gp")
+accelleration_curve = SubResource("Curve_fq6gp")
 
 [node name="BoilingStationView" type="Sprite2D" parent="." unique_id=396679798]
 texture = SubResource("GradientTexture2D_fq6gp")
@@ -27,12 +36,13 @@ theme = ExtResource("2_ev050")
 text = "Boiling station"
 fit_content = true
 
-[node name="FilledState" type="RichTextLabel" parent="BoilingStationView" unique_id=1571099781]
-offset_left = -44.0
+[node name="State" type="RichTextLabel" parent="BoilingStationView" unique_id=1571099781]
+offset_left = -100.0
 offset_top = -66.0
-offset_right = 43.0
+offset_right = 99.0
 offset_bottom = -32.0
 size_flags_horizontal = 3
+mouse_filter = 2
 theme = ExtResource("2_ev050")
 text = "Empty"
 fit_content = true

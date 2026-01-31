@@ -25,15 +25,17 @@ func register_holder_resource(node_name: String, initial_holder_resource: Holder
 	if node_name not in state:
 		state[node_name] = initial_holder_resource
 	state[node_name].amount_changed.connect(func(_x): _schedule_save())
+	save()
 	
 	return state[node_name]
 
-func register_holder_resources(node_name: String, initial_resources: Dictionary[String, HolderResource]) -> Dictionary[String, HolderResource]:
+func register_holder_resources(node_name: String, initial_resources: Dictionary) -> Dictionary:
 	var state = _get_saved_resources_state("holder")
 	if node_name not in state:
 		state[node_name] = initial_resources
 	for key in state[node_name]:
 		state[node_name][key].amount_changed.connect(func(_x): _schedule_save())
+	save()
 	
 	return state[node_name]
 
@@ -42,8 +44,14 @@ func register_travel_resource(node_name: String, initial_travel_resource: Travel
 	if node_name not in state:
 		state[node_name] = initial_travel_resource
 	state[node_name].path_travelled_changed.connect(func(_x): _schedule_save())
+	save()
 	
 	return state[node_name]
+
+func unregister_holder_resource(node_name: String):
+	var state = _get_saved_resources_state("holder")
+	state.erase(node_name)
+	save()
 
 func _get_saved_resources_state(type: String) -> Dictionary:
 	if type not in save_game_data.game_state:

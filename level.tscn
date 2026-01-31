@@ -24,6 +24,16 @@ script = ExtResource("3_oi3di")
 amount = 25
 metadata/_custom_type_script = "uid://dr2xkieskyly1"
 
+[sub_resource type="Resource" id="Resource_i2t4f"]
+script = ExtResource("3_oi3di")
+amount = 25
+metadata/_custom_type_script = "uid://dr2xkieskyly1"
+
+[sub_resource type="Resource" id="Resource_8cye3"]
+script = ExtResource("3_oi3di")
+amount = 25
+metadata/_custom_type_script = "uid://dr2xkieskyly1"
+
 [sub_resource type="Curve2D" id="Curve2D_n6hdu"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 96, 364, 0, 0, 0, 0, 291, 376)
@@ -53,6 +63,14 @@ oil_barrel_transporter_path = NodePath("../OilBarrelTransporterPath")
 [node name="OliveTreePlacement" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
 position = Vector2(122, 499)
 olives = SubResource("Resource_1ainy")
+
+[node name="OliveTreePlacement2" parent="." unique_id=247438807 instance=ExtResource("2_vonw3")]
+position = Vector2(248, 529)
+olives = SubResource("Resource_i2t4f")
+
+[node name="OliveTreePlacement3" parent="." unique_id=1715293771 instance=ExtResource("2_vonw3")]
+position = Vector2(152, 606)
+olives = SubResource("Resource_8cye3")
 
 [node name="OliveTransporterPath" type="Path2D" parent="." unique_id=980445474]
 curve = SubResource("Curve2D_n6hdu")

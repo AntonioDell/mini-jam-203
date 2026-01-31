@@ -27,3 +27,4 @@ func _setup_children():
 func _on_travel_arrived(is_returning: bool):
 	var boiling_controller: BoilingStationController = get_tree().get_first_node_in_group("BoilingStationController")
 	boiling_controller.transfer_oil_barrel_to_boiler(oil_barrel)
+	GlobalSaveGameController.unregister_holder_resource(name)
