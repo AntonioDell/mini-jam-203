@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://doy0q8hi1nxk0"
 
 GlobalSaveGameController="*uid://ckdjbfct2hgg"
 GlobalSettingsController="*uid://dfx2atictc2u"
+GlobalErrorHandler="*uid://d03gbfl8om7ty"
 
 [global_group]
 

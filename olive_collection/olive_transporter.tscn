@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dnhpqe5uidffi"]
+
+[ext_resource type="Script" uid="uid://d25361r47iv7p" path="res://olive_collection/olive_transporter.gd" id="1_d1ety"]
+[ext_resource type="PackedScene" uid="uid://begi2xobvn5km" path="res://olive_collection/holder_resource_save_game.tscn" id="2_6c6q1"]
+[ext_resource type="PackedScene" uid="uid://jc2ax3oafrlj" path="res://olive_collection/olive_transporter_view.tscn" id="3_y6hwv"]
+
+[node name="OliveTransporter" type="Node2D" unique_id=504175730]
+script = ExtResource("1_d1ety")
+
+[node name="OlivesSaveGame" parent="." unique_id=1430807298 instance=ExtResource("2_6c6q1")]
+
+[node name="OliveTransporterView" parent="." unique_id=1231848277 instance=ExtResource("3_y6hwv")]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1767878051]

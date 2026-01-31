@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://be0ple86o827j"]
 
 [ext_resource type="Script" uid="uid://qjmxvvct6rit" path="res://olive_collection/olive_tree_view.gd" id="1_mj5ss"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="2_fjdpp"]
 
 [sub_resource type="Gradient" id="Gradient_r8oxo"]
 offsets = PackedFloat32Array(1)
@@ -14,3 +15,14 @@ script = ExtResource("1_mj5ss")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1564127246]
 texture = SubResource("GradientTexture2D_8vonl")
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=750236965]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme = ExtResource("2_fjdpp")
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1

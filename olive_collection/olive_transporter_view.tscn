@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://jc2ax3oafrlj"]
+
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="1_cknx2"]
+[ext_resource type="Script" uid="uid://bpbp6wrfb4etl" path="res://olive_collection/olive_transporter_view.gd" id="1_oymhs"]
+
+[sub_resource type="Gradient" id="Gradient_rwybj"]
+offsets = PackedFloat32Array(0.032332562)
+colors = PackedColorArray(0.8509804, 0.7607843, 0.63529414, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1o84x"]
+gradient = SubResource("Gradient_rwybj")
+
+[node name="OliveTransporterView" type="Node2D" unique_id=1231848277]
+script = ExtResource("1_oymhs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1935847201]
+texture = SubResource("GradientTexture2D_1o84x")
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=952370263]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme = ExtResource("1_cknx2")
+text = "0
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1

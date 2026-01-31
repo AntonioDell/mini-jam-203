@@ -1,15 +1,15 @@
+class_name OliveTree
 extends Node2D
 
 
 @export var olives: HolderResource
 
-var controller: OliveCollectionController
-
 
 func _ready():
-	controller = get_tree().get_first_node_in_group("OliveCollectionController")
+	olives = $OliveTreeSaveGame.register_holder_resource(name, olives)
 	_setup_children()
 
 func _setup_children():
+	var controller = get_tree().get_first_node_in_group("OliveCollectionController")
 	$OliveTreeView.setup(olives)
 	$OliveTreeInputArea.setup(olives, controller)

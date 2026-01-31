@@ -13,17 +13,18 @@ func setup(olives: HolderResource):
 
 var current_tween: Tween 
 func _on_olives_amount_changed(value: int):
+	_update_visuals(value)
+	
 	if current_tween and current_tween.is_running():
 		current_tween.custom_step(.55)
 		current_tween.kill()
 	current_tween = create_tween()
 	current_tween.tween_property(sprite, "scale", Vector2(0.8,0.8), .25)
 	current_tween.tween_property(sprite, "scale", Vector2(1.0,1.0), .25)
-	await current_tween.finished
 	
-	_update_visuals(value)
 
 func _update_visuals(value: int):
+	$Label.text = "%s" % value
 	if value == 0:
 		# TODO: Show empty tree
 		$Sprite2D.modulate = Color.WHITE.darkened(.5)

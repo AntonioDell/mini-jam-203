@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bv3ucdmnvggon"]
+
+[ext_resource type="Script" uid="uid://c76ghr2bjom6d" path="res://travel/olive_transporter_travel_controller.gd" id="1_6614c"]
+
+[node name="OliveTransporterTravelController" type="Node2D" unique_id=4573142]
+script = ExtResource("1_6614c")
