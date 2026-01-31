@@ -28,6 +28,15 @@ func register_holder_resource(node_name: String, initial_holder_resource: Holder
 	
 	return state[node_name]
 
+func register_holder_resources(node_name: String, initial_resources: Dictionary[String, HolderResource]) -> Dictionary[String, HolderResource]:
+	var state = _get_saved_resources_state("holder")
+	if node_name not in state:
+		state[node_name] = initial_resources
+	for key in state[node_name]:
+		state[node_name][key].amount_changed.connect(func(_x): _schedule_save())
+	
+	return state[node_name]
+
 func register_travel_resource(node_name: String, initial_travel_resource: TravelResource) -> TravelResource:
 	var state = _get_saved_resources_state("travel")
 	if node_name not in state:

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://j7dmfqbcafic"]
+
+[ext_resource type="Script" uid="uid://b13xp4g5akswh" path="res://travel/oil_barrel_transporter.gd" id="1_jb4rr"]
+[ext_resource type="Script" uid="uid://bqj7jm8xew4wc" path="res://travel/oil_barrel_transporter_view.gd" id="2_yvl00"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="3_dre8e"]
+[ext_resource type="Script" uid="uid://dmroquuciyj8s" path="res://travel/oil_barrel_transporter_travel_incrementer.gd" id="3_k3fiu"]
+[ext_resource type="Script" uid="uid://obq83lr7pjam" path="res://click_input_area.gd" id="5_ijnsq"]
+
+[sub_resource type="Curve" id="Curve_k3fiu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_k3fiu"]
+offsets = PackedFloat32Array(0.9792285)
+colors = PackedColorArray(0.8509804, 0.7607843, 0.63529414, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dre8e"]
+gradient = SubResource("Gradient_k3fiu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dre8e"]
+size = Vector2(64, 64)
+
+[node name="OilBarrelTransporter" type="PathFollow2D" unique_id=117764608]
+script = ExtResource("1_jb4rr")
+
+[node name="OilBarrelTransporterTravelIncrementer" type="Node" parent="." unique_id=787842553]
+script = ExtResource("3_k3fiu")
+accelleration_curve = SubResource("Curve_k3fiu")
+
+[node name="OilBarrelTransporterView" type="Node2D" parent="." unique_id=77428258]
+script = ExtResource("2_yvl00")
+
+[node name="Sprite2D" type="Sprite2D" parent="OilBarrelTransporterView" unique_id=1265704392]
+texture = SubResource("GradientTexture2D_dre8e")
+
+[node name="BarrelLabel" type="RichTextLabel" parent="OilBarrelTransporterView" unique_id=1484439505]
+offset_left = -32.0
+offset_top = -66.0
+offset_right = 40.0
+offset_bottom = -32.0
+theme = ExtResource("3_dre8e")
+text = "Barrel"
+fit_content = true
+
+[node name="BarrelCount" type="RichTextLabel" parent="OilBarrelTransporterView" unique_id=1081533642]
+unique_name_in_owner = true
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme = ExtResource("3_dre8e")
+text = "0"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClickInputArea" type="Area2D" parent="." unique_id=290085439]
+script = ExtResource("5_ijnsq")
+metadata/_custom_type_script = "uid://obq83lr7pjam"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=1502883809]
+shape = SubResource("RectangleShape2D_dre8e")

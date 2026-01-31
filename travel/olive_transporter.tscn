@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://dnhpqe5uidffi"]
 
-[ext_resource type="Script" uid="uid://d25361r47iv7p" path="res://olive_collection/olive_transporter.gd" id="1_d1ety"]
+[ext_resource type="Script" uid="uid://d25361r47iv7p" path="res://travel/olive_transporter.gd" id="1_d1ety"]
 [ext_resource type="PackedScene" uid="uid://dlidue5gocvyw" path="res://travel/olive_transporter_travel_incrementer.tscn" id="2_y6hwv"]
-[ext_resource type="PackedScene" uid="uid://sqph21mpywcq" path="res://travel/olive_transporter_input_area.tscn" id="3_6c6q1"]
-[ext_resource type="PackedScene" uid="uid://jc2ax3oafrlj" path="res://olive_collection/olive_transporter_view.tscn" id="3_y6hwv"]
+[ext_resource type="PackedScene" uid="uid://jc2ax3oafrlj" path="res://travel/olive_transporter_view.tscn" id="3_y6hwv"]
+[ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="4_y6hwv"]
 
 [sub_resource type="Curve" id="Curve_y6hwv"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w66k7"]
+size = Vector2(64, 64)
 
 [node name="OliveTransporter" type="PathFollow2D" unique_id=846844082]
 rotates = false
@@ -18,4 +21,7 @@ accelleration_curve = SubResource("Curve_y6hwv")
 
 [node name="OliveTransporterView" parent="." unique_id=1231848277 instance=ExtResource("3_y6hwv")]
 
-[node name="OliveTransporterInputArea" parent="." unique_id=717562846 instance=ExtResource("3_6c6q1")]
+[node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("4_y6hwv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=553337618]
+shape = SubResource("RectangleShape2D_w66k7")

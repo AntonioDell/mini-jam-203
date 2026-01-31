@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://rk807chw8e65"]
+
+[ext_resource type="Script" uid="uid://dslxyoelry13o" path="res://oil_refinery/oil_refinery.gd" id="1_bmtb4"]
+[ext_resource type="PackedScene" uid="uid://jlaxt2n3d23r" path="res://oil_refinery/oil_refinery_view.tscn" id="2_rk0u1"]
+[ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="3_rk0u1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rk0u1"]
+size = Vector2(64, 64)
+
+[node name="OilRefinery" type="Node2D" unique_id=511384656]
+script = ExtResource("1_bmtb4")
+
+[node name="OilRefineryView" parent="." unique_id=1798547530 instance=ExtResource("2_rk0u1")]
+
+[node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("3_rk0u1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=2064281597]
+shape = SubResource("RectangleShape2D_rk0u1")

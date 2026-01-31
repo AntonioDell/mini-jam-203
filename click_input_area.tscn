@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bswejc7ynxy08"]
+
+[ext_resource type="Script" uid="uid://obq83lr7pjam" path="res://click_input_area.gd" id="1_axn3b"]
+
+[node name="ClickInputArea" type="Area2D" unique_id=719354934]
+script = ExtResource("1_axn3b")

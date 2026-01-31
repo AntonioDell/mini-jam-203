@@ -2,8 +2,8 @@ class_name OliveTransporter
 extends PathFollow2D
 
 
-@export var olives: HolderResource
-@export var travel: TravelResource
+var olives: HolderResource = HolderResource.new()
+var travel: TravelResource = TravelResource.new()
 
 var controller: OliveCollectionController
 
@@ -26,23 +26,21 @@ func _setup_travel():
 func _setup_children():
 	$OliveTransporterView.setup(olives, travel)
 	$OliveTransporterTravelIncrementer.setup(travel, 5.0)
-	$OliveTransporterInputArea.olive_transporter_clicked.connect(_on_transporter_clicked)
-
+	$ClickInputArea.input_area_clicked.connect(_on_transporter_clicked)
 
 func _on_transporter_clicked():
-	print("Clicked")
 	if travel.path_travelled == 1.0:
 		travel.is_returning = true
 	elif travel.path_travelled == 0.0:
 		travel.is_returning = false
+		if olives.amount == 0:
+			return
 	travel.is_travelling = true
 	controller.unregister_destination(olives)
 
-
 func _on_travel_arrived(is_returning: bool):
 	if not is_returning:
-		olives.amount = 0
-		print("Unloading cart")
+		var refinery_controller: OilRefineryController = get_tree().get_first_node_in_group("OilRefineryController")
+		refinery_controller.transfer_olives_to_refinery(olives)
 	else:
 		controller.register_desitnation(olives)
-		print("Ready for more olives")

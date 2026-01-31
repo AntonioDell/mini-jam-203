@@ -10,3 +10,7 @@ signal amount_change_failed
 	set(value):
 		amount = value
 		amount_changed.emit(amount)
+
+
+func _init(initial_amount: int = 0):
+	self.amount = initial_amount

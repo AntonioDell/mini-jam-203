@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b1avv1fyv2bpk"]
+
+[ext_resource type="Script" uid="uid://bogspatplblb0" path="res://oil_refinery/oil_refinery_controller.gd" id="1_rs6d8"]
+
+[node name="OilRefineryController" type="Node" unique_id=1971355871 groups=["OilRefineryController"]]
+script = ExtResource("1_rs6d8")

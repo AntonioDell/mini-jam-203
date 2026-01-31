@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jc2ax3oafrlj"]
 
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="1_cknx2"]
-[ext_resource type="Script" uid="uid://bpbp6wrfb4etl" path="res://olive_collection/olive_transporter_view.gd" id="1_oymhs"]
+[ext_resource type="Script" uid="uid://bpbp6wrfb4etl" path="res://travel/olive_transporter_view.gd" id="1_oymhs"]
 
 [sub_resource type="Gradient" id="Gradient_rwybj"]
 offsets = PackedFloat32Array(0.032332562)

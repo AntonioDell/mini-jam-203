@@ -28,6 +28,8 @@ GlobalErrorHandler="*uid://d03gbfl8om7ty"
 [global_group]
 
 OliveCollectionController=""
+OilRefineryController=""
+BoilingStationController=""
 
 [physics]
 

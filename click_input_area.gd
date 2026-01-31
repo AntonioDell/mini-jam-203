@@ -1,8 +1,8 @@
-class_name OliveTransporterInputArea
+class_name ClickInputArea
 extends Area2D
 
 
-signal olive_transporter_clicked
+signal input_area_clicked
 
 
 func _ready():
@@ -10,4 +10,4 @@ func _ready():
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int):
 	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed:
-		olive_transporter_clicked.emit()
+		input_area_clicked.emit()

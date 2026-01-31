@@ -16,7 +16,7 @@ func unregister_destination(destination: HolderResource):
 
 func try_collect(source: HolderResource) -> bool:
 	var destination = olive_destinations.filter(func(d: HolderResource): return d.amount < destination_max_amount)
-	if source.amount > 0 and not destination.is_empty():
+	if not destination.is_empty():
 		_transfer(source ,destination[0])
 		return true
 	else:
@@ -24,5 +24,5 @@ func try_collect(source: HolderResource) -> bool:
 		return false
 
 func _transfer(source: HolderResource, destination: HolderResource):
-	source.amount -= 1
-	destination.amount += 1
+	destination.amount += clamp(source.amount, 0, destination_max_amount - destination.amount)
+	source.amount = max(source.amount - 1, 1) 

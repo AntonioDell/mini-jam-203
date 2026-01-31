@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b1rosb3f76rkd"]
+
+[ext_resource type="Script" uid="uid://bfhtey6nxsfi" path="res://boiling/boiling_station_controller.gd" id="1_k2qkv"]
+
+[node name="BoilingStationController" type="Node" unique_id=1168486281 groups=["BoilingStationController"]]
+script = ExtResource("1_k2qkv")
