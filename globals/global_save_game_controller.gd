@@ -16,6 +16,10 @@ func save():
 		GlobalErrorHandler.handle_error(self, "Failed to save game with error %s" % err)
 	print("Game saved")
 
+func reset_game_state():
+	save_game_data.game_state = {}
+	save()
+
 
 func _ready():
 	if not _load_save_game():

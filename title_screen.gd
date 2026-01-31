@@ -1,7 +1,8 @@
 class_name TitleScreen
 extends Node
 
-signal start_button_pressed
+signal new_game_button_pressed
+signal continue_button_pressed
 
 func _ready():
 	if OS.has_feature("no_quit_button"):
@@ -13,7 +14,13 @@ func _ready():
 	
 	%SettingsButton.pressed.connect(_show_settings)
 	%SettingsBackButton.pressed.connect(_show_main_menu_buttons)
-	%StartButton.pressed.connect(start_button_pressed.emit)
+	%NewGameButton.pressed.connect(new_game_button_pressed.emit)
+	
+	if GlobalSaveGameController.save_game_data.game_state.is_empty():
+		$%ContinueButton.hide()
+	else:
+		$%ContinueButton.show()
+	$%ContinueButton.pressed.connect(continue_button_pressed.emit)
 	
 	GlobalSaveGameController.game_loaded.connect(_init_from_save_game)
 	
