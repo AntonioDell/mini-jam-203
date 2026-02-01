@@ -48,9 +48,11 @@ func register_travel_resource(node_name: String, initial_travel_resource: Travel
 	
 	return state[node_name]
 
-func unregister_holder_resource(node_name: String):
-	var state = _get_saved_resources_state("holder")
-	state.erase(node_name)
+func unregister(node_name: String):
+	var holder_state = _get_saved_resources_state("holder")
+	holder_state.erase(node_name)
+	var travel_state = _get_saved_resources_state("travel")
+	travel_state.erase(node_name)
 	save()
 
 func _get_saved_resources_state(type: String) -> Dictionary:

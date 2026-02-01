@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bh038ht2gy0lo"]
+
+[ext_resource type="Script" uid="uid://bki5iyxfualx5" path="res://attacker/attacker.gd" id="1_65eb3"]
+[ext_resource type="Script" uid="uid://3s6dbs4f7b85" path="res://attacker/attacker_view.gd" id="2_fb8o8"]
+[ext_resource type="PackedScene" uid="uid://dlidue5gocvyw" path="res://travel/travel_incrementer.tscn" id="2_j4p0w"]
+[ext_resource type="Script" uid="uid://dr2xkieskyly1" path="res://holder_resource.gd" id="2_np54d"]
+[ext_resource type="Script" uid="uid://3ceustfjoi8m" path="res://attacker/wall_damager.gd" id="3_8vx3t"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="5_np54d"]
+
+[sub_resource type="Resource" id="Resource_8vx3t"]
+script = ExtResource("2_np54d")
+amount = 5
+metadata/_custom_type_script = "uid://dr2xkieskyly1"
+
+[sub_resource type="Curve" id="Curve_8vx3t"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_j4p0w"]
+offsets = PackedFloat32Array(0.24458875)
+colors = PackedColorArray(0.8509804, 0.7607843, 0.63529414, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_np54d"]
+gradient = SubResource("Gradient_j4p0w")
+width = 32
+
+[node name="Attacker" type="PathFollow2D" unique_id=1372274891]
+loop = false
+script = ExtResource("1_65eb3")
+health = SubResource("Resource_8vx3t")
+
+[node name="WallDamager" type="Node" parent="." unique_id=2100933757]
+script = ExtResource("3_8vx3t")
+
+[node name="Timer" type="Timer" parent="WallDamager" unique_id=16562934]
+
+[node name="TravelIncrementer" parent="." unique_id=912653014 instance=ExtResource("2_j4p0w")]
+accelleration_curve = SubResource("Curve_8vx3t")
+
+[node name="AttackerView" type="Sprite2D" parent="." unique_id=1174173683]
+texture = SubResource("GradientTexture2D_np54d")
+script = ExtResource("2_fb8o8")
+
+[node name="HealthLabel" type="RichTextLabel" parent="AttackerView" unique_id=588985045]
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme = ExtResource("5_np54d")
+text = "0"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

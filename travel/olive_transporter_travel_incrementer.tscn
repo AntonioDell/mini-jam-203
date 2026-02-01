@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://dlidue5gocvyw"]
-
-[ext_resource type="Script" uid="uid://cjdst4hwpq2tl" path="res://travel/olive_transporter_travel_incrementer.gd" id="1_niqlg"]
-
-[node name="OliveTransporterTravelIncrementer" type="Node" unique_id=912653014]
-script = ExtResource("1_niqlg")

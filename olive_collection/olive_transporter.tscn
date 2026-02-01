@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dnhpqe5uidffi"]
 
-[ext_resource type="Script" uid="uid://d25361r47iv7p" path="res://travel/olive_transporter.gd" id="1_d1ety"]
-[ext_resource type="PackedScene" uid="uid://dlidue5gocvyw" path="res://travel/olive_transporter_travel_incrementer.tscn" id="2_y6hwv"]
-[ext_resource type="PackedScene" uid="uid://jc2ax3oafrlj" path="res://travel/olive_transporter_view.tscn" id="3_y6hwv"]
+[ext_resource type="Script" uid="uid://d25361r47iv7p" path="res://olive_collection/olive_transporter.gd" id="1_d1ety"]
+[ext_resource type="PackedScene" uid="uid://dlidue5gocvyw" path="res://travel/travel_incrementer.tscn" id="2_y6hwv"]
+[ext_resource type="PackedScene" uid="uid://jc2ax3oafrlj" path="res://olive_collection/olive_transporter_view.tscn" id="3_y6hwv"]
 [ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="4_y6hwv"]
 
 [sub_resource type="Curve" id="Curve_y6hwv"]
@@ -16,7 +16,7 @@ size = Vector2(64, 64)
 rotates = false
 script = ExtResource("1_d1ety")
 
-[node name="OliveTransporterTravelIncrementer" parent="." unique_id=912653014 instance=ExtResource("2_y6hwv")]
+[node name="TravelIncrementer" parent="." unique_id=912653014 instance=ExtResource("2_y6hwv")]
 accelleration_curve = SubResource("Curve_y6hwv")
 
 [node name="OliveTransporterView" parent="." unique_id=1231848277 instance=ExtResource("3_y6hwv")]

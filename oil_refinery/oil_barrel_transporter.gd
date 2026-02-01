@@ -2,6 +2,9 @@ class_name OilBarrelTransporter
 extends PathFollow2D
 
 
+@export var time_to_arrive_at_boiling_station := 2.0
+
+
 var oil_barrel: HolderResource = HolderResource.new(1)
 var travel: TravelResource = TravelResource.new()
 
@@ -21,10 +24,10 @@ func _setup_travel():
 
 func _setup_children():
 	$OilBarrelTransporterView.setup(oil_barrel, travel)
-	$OilBarrelTransporterTravelIncrementer.setup(travel, 2.0)
+	$TravelIncrementer.setup(travel, time_to_arrive_at_boiling_station)
 
 
 func _on_travel_arrived(is_returning: bool):
 	var boiling_controller: BoilingStationController = get_tree().get_first_node_in_group("BoilingStationController")
 	boiling_controller.transfer_oil_barrel_to_boiler(oil_barrel)
-	GlobalSaveGameController.unregister_holder_resource(name)
+	GlobalSaveGameController.unregister(name)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bijo6npvvkc2f"]
+
+[ext_resource type="Script" uid="uid://cx52b8lbp4e2m" path="res://attacker/attacker_controller.gd" id="1_nmbm2"]
+
+[node name="AttackerController" type="Node" unique_id=726532179 groups=["AttackerController"]]
+script = ExtResource("1_nmbm2")

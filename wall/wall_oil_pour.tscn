@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://yo81i4nregxs"]
+
+[ext_resource type="Script" uid="uid://de13qp883rrnq" path="res://wall/wall_oil_pour.gd" id="1_te2rb"]
+[ext_resource type="Script" uid="uid://3cq6f7b3acf7" path="res://wall/wall_oil_pour_view.gd" id="2_r47qm"]
+[ext_resource type="Script" uid="uid://b83aoonfknm8h" path="res://wall/wall_pour_oil_decrementer.gd" id="2_xcbov"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="4_xcbov"]
+
+[sub_resource type="Curve" id="Curve_or82p"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_r47qm"]
+offsets = PackedFloat32Array(0.54112554)
+colors = PackedColorArray(0.49411765, 0.54509807, 0.29411766, 0.5764706)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2d2ic"]
+gradient = SubResource("Gradient_r47qm")
+height = 200
+
+[node name="WallOilPour" type="Node2D" unique_id=1221194213]
+script = ExtResource("1_te2rb")
+
+[node name="WallPourOilDecrementer" type="Node" parent="." unique_id=661263727]
+script = ExtResource("2_xcbov")
+accelleration_curve = SubResource("Curve_or82p")
+
+[node name="WallOilPourView" type="Sprite2D" parent="." unique_id=700796063]
+texture = SubResource("GradientTexture2D_2d2ic")
+script = ExtResource("2_r47qm")
+
+[node name="OilPourLabel" type="RichTextLabel" parent="WallOilPourView" unique_id=488860529]
+offset_left = -20.0
+offset_top = -140.0
+offset_right = 20.0
+offset_bottom = -100.0
+theme = ExtResource("4_xcbov")
+text = "0"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

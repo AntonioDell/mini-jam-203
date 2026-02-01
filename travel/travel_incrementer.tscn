@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dlidue5gocvyw"]
+
+[ext_resource type="Script" uid="uid://cjdst4hwpq2tl" path="res://travel/travel_incrementer.gd" id="1_6x0ws"]
+
+[node name="TravelIncrementer" type="Node" unique_id=912653014]
+script = ExtResource("1_6x0ws")

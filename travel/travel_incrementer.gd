@@ -7,6 +7,7 @@ extends Node
 
 var travel: TravelResource
 var time_to_arrival: float
+var t = 0.0
 
 func setup(travel: TravelResource, time_to_arrival: float):
 	self.travel = travel
@@ -15,7 +16,6 @@ func setup(travel: TravelResource, time_to_arrival: float):
 	if travel.is_travelling:
 		t = lerp(0.0, time_to_arrival, travel.path_travelled)
 
-var t = 0.0
 func _process(delta):
 	if not travel.is_travelling: return
 	

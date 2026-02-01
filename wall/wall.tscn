@@ -38,7 +38,7 @@ theme = ExtResource("3_qswlj")
 text = "Stored Oil:"
 fit_content = true
 autowrap_mode = 0
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="StoredOilCount" type="RichTextLabel" parent="WallView" unique_id=848544281]
@@ -52,7 +52,32 @@ fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1
 
+[node name="Label2" type="RichTextLabel" parent="WallView" unique_id=1262282411]
+offset_left = -78.0
+offset_top = -212.0
+offset_right = 43.0
+offset_bottom = -178.0
+theme = ExtResource("3_qswlj")
+text = "Health:"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HealthCount" type="RichTextLabel" parent="WallView" unique_id=702397577]
+offset_left = 52.0
+offset_top = -212.0
+offset_right = 87.0
+offset_bottom = -178.0
+theme = ExtResource("3_qswlj")
+text = "0"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
 [node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("2_6wk7l")]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickInputArea" unique_id=2021136216]
 polygon = PackedVector2Array(-32, -150, -32, 150, 32, 150, 32, -150)
+
+[node name="AttackerDetector" type="Area2D" parent="." unique_id=1313970386]

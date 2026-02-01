@@ -4,15 +4,15 @@ extends Node
 @export var accelleration_curve: Curve
 
 
-var oil_storage: HolderResource
+var oil_source: HolderResource
 var is_pouring := false
 var time_to_max_flow_rate: float
 var max_flow_rate: float
 var time_since_start = 0.0
 
 @warning_ignore("shadowed_variable")
-func setup(oil_storage: HolderResource, time_to_max_flow_rate: float, max_flow_rate: int):
-	self.oil_storage = oil_storage
+func setup(oil_source: HolderResource, time_to_max_flow_rate: float, max_flow_rate: int):
+	self.oil_source = oil_source
 	self.time_to_max_flow_rate = time_to_max_flow_rate
 	self.max_flow_rate = max_flow_rate
 
@@ -34,8 +34,8 @@ func _process(delta):
 	var current_flow_rate = max_flow_rate * curve_sample
 	
 	if time_since_last_pour >= time_between_pours:
-		oil_storage.amount -= 1
-		if oil_storage.amount == 0:
+		oil_source.amount = maxi(oil_source.amount - 1, 0)
+		if oil_source.amount == 0:
 			stop_pouring()
 		time_since_last_pour = 0.0
 	

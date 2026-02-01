@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://j7dmfqbcafic"]
 
-[ext_resource type="Script" uid="uid://b13xp4g5akswh" path="res://travel/oil_barrel_transporter.gd" id="1_jb4rr"]
-[ext_resource type="Script" uid="uid://bqj7jm8xew4wc" path="res://travel/oil_barrel_transporter_view.gd" id="2_yvl00"]
+[ext_resource type="Script" uid="uid://b13xp4g5akswh" path="res://oil_refinery/oil_barrel_transporter.gd" id="1_jb4rr"]
+[ext_resource type="PackedScene" uid="uid://dlidue5gocvyw" path="res://travel/travel_incrementer.tscn" id="2_3rmvk"]
+[ext_resource type="Script" uid="uid://bqj7jm8xew4wc" path="res://oil_refinery/oil_barrel_transporter_view.gd" id="2_yvl00"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="3_dre8e"]
-[ext_resource type="Script" uid="uid://dmroquuciyj8s" path="res://travel/oil_barrel_transporter_travel_incrementer.gd" id="3_k3fiu"]
 [ext_resource type="Script" uid="uid://obq83lr7pjam" path="res://click_input_area.gd" id="5_ijnsq"]
 
-[sub_resource type="Curve" id="Curve_k3fiu"]
+[sub_resource type="Curve" id="Curve_3rmvk"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -23,9 +23,8 @@ size = Vector2(64, 64)
 [node name="OilBarrelTransporter" type="PathFollow2D" unique_id=117764608]
 script = ExtResource("1_jb4rr")
 
-[node name="OilBarrelTransporterTravelIncrementer" type="Node" parent="." unique_id=787842553]
-script = ExtResource("3_k3fiu")
-accelleration_curve = SubResource("Curve_k3fiu")
+[node name="TravelIncrementer" parent="." unique_id=912653014 instance=ExtResource("2_3rmvk")]
+accelleration_curve = SubResource("Curve_3rmvk")
 
 [node name="OilBarrelTransporterView" type="Node2D" parent="." unique_id=77428258]
 script = ExtResource("2_yvl00")

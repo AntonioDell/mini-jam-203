@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://brv6wkifv0h1i"]
+
+[ext_resource type="Script" uid="uid://co8s0odxd8gu2" path="res://wave_controller.gd" id="1_rxb7e"]
+
+[node name="WaveController" type="Node" unique_id=726057860 groups=["WaveController"]]
+script = ExtResource("1_rxb7e")
+
+[node name="Timer" type="Timer" parent="." unique_id=1850210785]

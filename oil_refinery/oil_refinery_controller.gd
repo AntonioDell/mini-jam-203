@@ -6,7 +6,7 @@ extends Node
 @export var refinery_capacity := 150
 
 var refinery: OilRefinery
-var oil_barrel_transporter_scene = preload("res://travel/oil_barrel_transporter.tscn")
+var oil_barrel_transporter_scene = preload("res://oil_refinery/oil_barrel_transporter.tscn")
 
 @warning_ignore("shadowed_variable")
 func register_refinery(refinery: OilRefinery):
