@@ -6,14 +6,15 @@ extends Node2D
 
 
 func setup(olives: HolderResource):
-	olives.amount_changed.connect(_on_olives_amount_changed)
+	olives.amount_delta.connect(_on_olives_amount_changed)
 	olives.amount_change_failed.connect(_on_olives_amount_change_failed)
 	_update_visuals(olives.amount)
 
 
 var current_tween: Tween 
-func _on_olives_amount_changed(value: int):
+func _on_olives_amount_changed(value: int, old_value: int):
 	_update_visuals(value)
+	if value >= old_value: return
 	
 	if current_tween and current_tween.is_running():
 		current_tween.custom_step(.55)

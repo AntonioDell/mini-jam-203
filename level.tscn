@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b4b7cvlcguvof" path="res://olive_collection/olive_collection_controller.tscn" id="2_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://bijo6npvvkc2f" path="res://attacker/attacker_controller.tscn" id="2_aicyk"]
 [ext_resource type="PackedScene" uid="uid://b1avv1fyv2bpk" path="res://oil_refinery/oil_refinery_controller.tscn" id="2_km5ld"]
+[ext_resource type="PackedScene" uid="uid://eemw44ccclcd" path="res://game_controller.tscn" id="2_v5j5c"]
 [ext_resource type="PackedScene" uid="uid://dl4d6w6yy6jvs" path="res://olive_collection/olive_tree.tscn" id="2_vonw3"]
 [ext_resource type="Script" uid="uid://dr2xkieskyly1" path="res://holder_resource.gd" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://b1rosb3f76rkd" path="res://boiling/boiling_station_controller.tscn" id="4_8cye3"]
@@ -51,9 +52,21 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Curve2D" id="Curve2D_aicyk"]
+[sub_resource type="Curve2D" id="Curve2D_h6smj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1114, 614, 0, 0, 0, 0, 1066, 489, 0, 0, 0, 0, 969, 559, 0, 0, 0, 0, 895, 490)
+"points": PackedVector2Array(0, 0, 0, 0, 1179, 672, 0, 0, 0, 0, 1047, 535, 0, 0, 0, 0, 960, 593, 0, 0, 0, 0, 860, 523)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_v5j5c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1218.0319, 633.78253, 0, 0, 0, 0, 1022.12756, 497.28256, 0, 0, 0, 0, 941.0637, 546.739, 0, 0, 0, 0, 885, 503)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_5pxul"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1199, 576, 0, 0, 0, 0, 1055, 455, 0, 0, 0, 0, 970, 505, 0, 0, 0, 0, 914, 483)
 }
 point_count = 4
 
@@ -63,6 +76,8 @@ script = ExtResource("1_vonw3")
 [node name="BG" type="Sprite2D" parent="." unique_id=1954753282]
 texture = SubResource("GradientTexture2D_1ainy")
 centered = false
+
+[node name="GameController" parent="." unique_id=1661171547 instance=ExtResource("2_v5j5c")]
 
 [node name="AttackerController" parent="." unique_id=726532179 instance=ExtResource("2_aicyk")]
 
@@ -75,18 +90,18 @@ oil_barrel_transporter_path = NodePath("../OilBarrelTransporterPath")
 
 [node name="WallController" parent="." unique_id=296820452 instance=ExtResource("5_2orkt")]
 
-[node name="WaveController" parent="." unique_id=726057860 node_paths=PackedStringArray("attacker_spawn_point") instance=ExtResource("7_h6smj")]
-attacker_spawn_point = NodePath("../AttackerPath")
+[node name="WaveController" parent="." unique_id=726057860 node_paths=PackedStringArray("attacker_spawn_points") instance=ExtResource("7_h6smj")]
+attacker_spawn_points = [NodePath("../AttackerPath1"), NodePath("../AttackerPath2"), NodePath("../AttackerPath3")]
 
-[node name="OliveTreePlacement" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
+[node name="OliveTree1" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
 position = Vector2(122, 499)
 olives = SubResource("Resource_1ainy")
 
-[node name="OliveTreePlacement2" parent="." unique_id=247438807 instance=ExtResource("2_vonw3")]
+[node name="OliveTree2" parent="." unique_id=247438807 instance=ExtResource("2_vonw3")]
 position = Vector2(248, 529)
 olives = SubResource("Resource_i2t4f")
 
-[node name="OliveTreePlacement3" parent="." unique_id=1715293771 instance=ExtResource("2_vonw3")]
+[node name="OliveTree3" parent="." unique_id=1715293771 instance=ExtResource("2_vonw3")]
 position = Vector2(152, 606)
 olives = SubResource("Resource_8cye3")
 
@@ -108,8 +123,14 @@ position = Vector2(666, 447)
 [node name="Wall" parent="." unique_id=2078438762 instance=ExtResource("10_8cye3")]
 position = Vector2(836, 347)
 
-[node name="AttackerPath" type="Path2D" parent="." unique_id=1280330733]
-curve = SubResource("Curve2D_aicyk")
+[node name="AttackerPath1" type="Path2D" parent="." unique_id=1280330733]
+curve = SubResource("Curve2D_h6smj")
+
+[node name="AttackerPath2" type="Path2D" parent="." unique_id=483320874]
+curve = SubResource("Curve2D_v5j5c")
+
+[node name="AttackerPath3" type="Path2D" parent="." unique_id=936558252]
+curve = SubResource("Curve2D_5pxul")
 
 [node name="WallOilPour" parent="." unique_id=1221194213 instance=ExtResource("13_8b0r0")]
 position = Vector2(899, 426)

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dl4d6w6yy6jvs"]
 
 [ext_resource type="Script" uid="uid://dw2jdl2usdqx8" path="res://olive_collection/olive_tree.gd" id="1_yq5ov"]
+[ext_resource type="Script" uid="uid://bsrrm7dn5741w" path="res://olive_collection/olive_tree_replenisher.gd" id="2_5d438"]
 [ext_resource type="PackedScene" uid="uid://be0ple86o827j" path="res://olive_collection/olive_tree_view.tscn" id="2_8vonl"]
 [ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="3_fxmnw"]
 
@@ -9,6 +10,11 @@ size = Vector2(64, 64)
 
 [node name="OliveTree" type="Node2D" unique_id=1680221023]
 script = ExtResource("1_yq5ov")
+
+[node name="OliveTreeReplenisher" type="Node" parent="." unique_id=1320438522]
+script = ExtResource("2_5d438")
+
+[node name="Timer" type="Timer" parent="OliveTreeReplenisher" unique_id=1203626877]
 
 [node name="OliveTreeView" parent="." unique_id=202196002 instance=ExtResource("2_8vonl")]
 

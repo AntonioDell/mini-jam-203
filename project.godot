@@ -39,6 +39,7 @@ WallController=""
 AttackerController=""
 DeathZoneController=""
 WaveController=""
+GameController=""
 
 [input]
 

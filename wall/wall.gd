@@ -21,10 +21,17 @@ func _ready():
 	var attacker_controller: AttackerController = get_tree().get_first_node_in_group("AttackerController")
 	attacker_controller.register_wall_health(health)
 	
+	var game_controller: GameController = get_tree().get_first_node_in_group("GameController")
+	game_controller.register_loose_condition(health)
+	
 	$WallView.setup(oil_storage, health)
 	$WallPourOilDecrementer.setup(oil_storage, time_to_max_flow_rate, max_flow_rate)
-	$ClickInputArea.input_area_clicked.connect($WallPourOilDecrementer.start_pouring)
-	$ClickInputArea.input_area_released.connect($WallPourOilDecrementer.stop_pouring)
+	$ClickInputArea.input_area_clicked.connect(func(): 
+		if $WallPourOilDecrementer.is_pouring:
+			$WallPourOilDecrementer.stop_pouring()
+		else:
+			$WallPourOilDecrementer.start_pouring()
+	)
 	health.amount_changed.connect(_on_health_changed)
 
 func _on_health_changed(amount: int):
