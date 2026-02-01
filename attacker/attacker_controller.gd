@@ -5,6 +5,9 @@ extends Node
 signal attacker_dieded
 
 
+@export var attacker_pain_audio: AudioStreamPlayer2D
+
+
 var wall_health: HolderResource
 var pouring_oil: HolderResource
 # TODO: Make saveable
@@ -32,7 +35,17 @@ func _on_pouring_oil_amount_delta(new_value: int, old_value: int):
 	var damage_to_spread = old_value - new_value
 	for health in attackers_to_damage:
 		var new_health = maxi(health.amount - damage_to_spread, 0)
+		if new_health != health.amount:
+			_play_pain_audio()
 		health.amount = new_health
 		damage_to_spread = maxi(damage_to_spread - health.amount, 0)
 		if damage_to_spread == 0:
 			break
+
+var x = false
+func _play_pain_audio():
+	if x: return
+	x = true
+	attacker_pain_audio.play()
+	await attacker_pain_audio.finished
+	x = false

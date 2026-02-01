@@ -18,6 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://cyo02kph1qupo" path="res://wall/wall.tscn" id="10_8cye3"]
 [ext_resource type="PackedScene" uid="uid://yo81i4nregxs" path="res://wall/wall_oil_pour.tscn" id="13_8b0r0"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="17_fedht"]
+[ext_resource type="AudioStream" uid="uid://gxx2k4cag041" path="res://1_sound/enemyhit1.mp3" id="18_ilwjd"]
+[ext_resource type="AudioStream" uid="uid://bjds6c84xokwq" path="res://1_sound/enemyhit2.mp3" id="19_y3bce"]
+[ext_resource type="AudioStream" uid="uid://bosmj0khnv3v0" path="res://1_sound/enemyhit3.mp3" id="20_u3yai"]
+[ext_resource type="AudioStream" uid="uid://cch4m3531fkpg" path="res://1_sound/enemyhit4.mp3" id="21_fj6e6"]
 
 [sub_resource type="Gradient" id="Gradient_f2txt"]
 offsets = PackedFloat32Array(0.8429561)
@@ -73,6 +77,15 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2h3vt"]
+random_pitch = 1.0594631
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("18_ilwjd")
+stream_1/stream = ExtResource("19_y3bce")
+stream_2/stream = ExtResource("20_u3yai")
+stream_3/stream = ExtResource("21_fj6e6")
+
 [node name="Level" type="Node2D" unique_id=800733794]
 script = ExtResource("1_vonw3")
 
@@ -117,6 +130,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -132,6 +146,7 @@ text = "Settings"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=856032204]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer/UI/MarginContainer/HBoxContainer" unique_id=1197161511]
 layout_mode = 2
@@ -165,7 +180,8 @@ metadata/_edit_lock_ = true
 [node name="GameController" parent="." unique_id=1661171547 node_paths=PackedStringArray("attacker_controller") instance=ExtResource("2_v5j5c")]
 attacker_controller = NodePath("../AttackerController")
 
-[node name="AttackerController" parent="." unique_id=726532179 instance=ExtResource("2_aicyk")]
+[node name="AttackerController" parent="." unique_id=726532179 node_paths=PackedStringArray("attacker_pain_audio") instance=ExtResource("2_aicyk")]
+attacker_pain_audio = NodePath("../AttackerPainAudio")
 
 [node name="OilRefineryController" parent="." unique_id=1430434229 node_paths=PackedStringArray("oil_barrel_transporter_path") instance=ExtResource("2_km5ld")]
 oil_barrel_transporter_path = NodePath("../OilBarrelTransporterPath")
@@ -220,6 +236,12 @@ curve = SubResource("Curve2D_v5j5c")
 [node name="AttackerPath3" type="Path2D" parent="." unique_id=936558252]
 position = Vector2(777, 67)
 curve = SubResource("Curve2D_5pxul")
+
+[node name="AttackerPainAudio" type="AudioStreamPlayer2D" parent="." unique_id=784897357]
+position = Vector2(1516, 691)
+stream = SubResource("AudioStreamRandomizer_2h3vt")
+volume_db = 1.0
+bus = &"Sfx"
 
 [node name="WallOilPour" parent="." unique_id=1221194213 instance=ExtResource("13_8b0r0")]
 position = Vector2(1509, 546)
