@@ -10,7 +10,9 @@
 [ext_resource type="Script" uid="uid://dr2xkieskyly1" path="res://holder_resource.gd" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://b1rosb3f76rkd" path="res://boiling/boiling_station_controller.tscn" id="4_8cye3"]
 [ext_resource type="AudioStream" uid="uid://crrcvpk7k2h1t" path="res://1_sound/loop.mp3" id="4_fj6e6"]
+[ext_resource type="Script" uid="uid://diptdiwf7nxnw" path="res://tutorial.gd" id="4_mleqk"]
 [ext_resource type="PackedScene" uid="uid://bpgkxqylobu5h" path="res://wall/wall_controller.tscn" id="5_2orkt"]
+[ext_resource type="Theme" uid="uid://d1wh1k547oikb" path="res://tutorial_theme.tres" id="5_6btg4"]
 [ext_resource type="PackedScene" uid="uid://dnhpqe5uidffi" path="res://olive_collection/olive_transporter.tscn" id="5_f2txt"]
 [ext_resource type="PackedScene" uid="uid://brv6wkifv0h1i" path="res://wave_controller.tscn" id="7_h6smj"]
 [ext_resource type="PackedScene" uid="uid://rk807chw8e65" path="res://oil_refinery/oil_refinery.tscn" id="7_n6hdu"]
@@ -29,6 +31,36 @@
 [ext_resource type="Script" uid="uid://d2plc2i5sqm57" path="res://camera_target.gd" id="25_fj6e6"]
 [ext_resource type="Texture2D" uid="uid://bgfdr2q2n8mxq" path="res://0_sprites/original/rockwall_1.png" id="28_hvubb"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_mleqk"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_6btg4"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_sl4om"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_dtg4e"]
+button_mask = 1
+position = Vector2(272, 22)
+global_position = Vector2(281, 70)
+button_index = 1
+pressed = true
+
+[sub_resource type="InputEventMouseButton" id="InputEventMouseButton_ut2i6"]
+button_mask = 2
+position = Vector2(538, 23)
+global_position = Vector2(547, 71)
+button_index = 2
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_0mnfp"]
+events = [SubResource("InputEventKey_mleqk"), SubResource("InputEventKey_6btg4"), SubResource("InputEventKey_sl4om"), SubResource("InputEventMouseButton_dtg4e"), SubResource("InputEventMouseButton_ut2i6")]
+
 [sub_resource type="Gradient" id="Gradient_f2txt"]
 offsets = PackedFloat32Array(0.8429561)
 colors = PackedColorArray(0.94509804, 0.94509804, 0.9019608, 1)
@@ -38,30 +70,15 @@ gradient = SubResource("Gradient_f2txt")
 width = 1920
 height = 1080
 
-[sub_resource type="Resource" id="Resource_v5j5c"]
-script = ExtResource("3_oi3di")
-amount = 25
-metadata/_custom_type_script = "uid://dr2xkieskyly1"
-
-[sub_resource type="Resource" id="Resource_5pxul"]
-script = ExtResource("3_oi3di")
-amount = 25
-metadata/_custom_type_script = "uid://dr2xkieskyly1"
-
-[sub_resource type="Resource" id="Resource_fedht"]
-script = ExtResource("3_oi3di")
-amount = 5
-metadata/_custom_type_script = "uid://dr2xkieskyly1"
-
 [sub_resource type="Curve2D" id="Curve2D_n6hdu"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1112, 873, 0, 0, 0, 0, 1520, 970)
+"points": PackedVector2Array(0, 0, 0, 0, 1083, 990, 0, 0, 0, 0, 1272.947, 871.61176, 0, 0, 0, 0, 1461, 801)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_8cye3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1748, 839, 0, 0, 0, 0, 2172.0835, 881.0703, 0, 0, 0, 0, 2297, 786)
+"points": PackedVector2Array(0, 0, 0, 0, 1649, 905, 0, 0, 0, 0, 2146, 930, 0, 0, 0, 0, 2300, 753)
 }
 point_count = 3
 
@@ -92,6 +109,21 @@ stream_1/stream = ExtResource("19_y3bce")
 stream_2/stream = ExtResource("20_u3yai")
 stream_3/stream = ExtResource("21_fj6e6")
 
+[sub_resource type="Resource" id="Resource_v5j5c"]
+script = ExtResource("3_oi3di")
+amount = 25
+metadata/_custom_type_script = "uid://dr2xkieskyly1"
+
+[sub_resource type="Resource" id="Resource_5pxul"]
+script = ExtResource("3_oi3di")
+amount = 25
+metadata/_custom_type_script = "uid://dr2xkieskyly1"
+
+[sub_resource type="Resource" id="Resource_fedht"]
+script = ExtResource("3_oi3di")
+amount = 5
+metadata/_custom_type_script = "uid://dr2xkieskyly1"
+
 [node name="Level" type="Node2D" unique_id=800733794]
 script = ExtResource("1_vonw3")
 
@@ -99,6 +131,7 @@ script = ExtResource("1_vonw3")
 process_mode = 3
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=138463520]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,10 +237,106 @@ text = "1"
 fit_content = true
 autowrap_mode = 0
 
+[node name="Tutorial" type="CanvasLayer" parent="." unique_id=541473433]
+unique_name_in_owner = true
+script = ExtResource("4_mleqk")
+
+[node name="Control" type="PanelContainer" parent="Tutorial" unique_id=729209126]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Tutorial/Control" unique_id=952189147]
+layout_mode = 2
+theme_override_constants/margin_top = 300
+theme_override_constants/margin_bottom = 500
+
+[node name="TextContainer" type="MarginContainer" parent="Tutorial/Control/MarginContainer" unique_id=1716782914]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="T1" type="RichTextLabel" parent="Tutorial/Control/MarginContainer/TextContainer" unique_id=1934987368]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_6btg4")
+text = "A small italian village...
+A greedy corporation..."
+fit_content = true
+autowrap_mode = 0
+visible_characters = 53
+visible_ratio = 1.06
+
+[node name="T2" type="RichTextLabel" parent="Tutorial/Control/MarginContainer/TextContainer" unique_id=254111506]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_6btg4")
+text = "Defend yourself with your only resource."
+fit_content = true
+autowrap_mode = 0
+
+[node name="T3" type="RichTextLabel" parent="Tutorial/Control/MarginContainer/TextContainer" unique_id=559606542]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_6btg4")
+text = "OLIVE OIL!
+Farm the olives from the trees,
+put it into the press,
+boil it and then..."
+fit_content = true
+autowrap_mode = 0
+
+[node name="T4" type="RichTextLabel" parent="Tutorial/Control/MarginContainer/TextContainer" unique_id=166166594]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_6btg4")
+text = "... HANDLE the intruders.
+By pouring the oil onto them."
+fit_content = true
+autowrap_mode = 0
+
+[node name="T5" type="RichTextLabel" parent="Tutorial/Control/MarginContainer/TextContainer" unique_id=1924775966]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_6btg4")
+text = "Click on stuff to do things,
+use your mouse to navigate or 
+press the LEFT and RIGHT keys."
+fit_content = true
+autowrap_mode = 0
+
+[node name="T6" type="RichTextLabel" parent="Tutorial/Control/MarginContainer/TextContainer" unique_id=992249654]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_6btg4")
+text = "Godspeed, friend."
+fit_content = true
+autowrap_mode = 0
+
+[node name="NextButton" type="Button" parent="Tutorial/Control/MarginContainer" unique_id=996308883]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("17_fedht")
+shortcut = SubResource("Shortcut_0mnfp")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "Next"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=34172086]
 process_mode = 3
 stream = ExtResource("4_fj6e6")
-volume_db = -2.0
+volume_db = -5.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
@@ -252,26 +381,14 @@ texture = ExtResource("14_yjxuc")
 texture = ExtResource("16_6btg4")
 centered = false
 
-[node name="OliveTree1" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
-position = Vector2(498, 694)
-olives = SubResource("Resource_v5j5c")
-
-[node name="OliveTree2" parent="." unique_id=247438807 instance=ExtResource("2_vonw3")]
-position = Vector2(810, 834)
-olives = SubResource("Resource_5pxul")
-
-[node name="OliveTree3" parent="." unique_id=1715293771 instance=ExtResource("2_vonw3")]
-position = Vector2(226, 894)
-olives = SubResource("Resource_fedht")
-
 [node name="OliveTransporterPath" type="Path2D" parent="." unique_id=980445474]
 curve = SubResource("Curve2D_n6hdu")
 
 [node name="OliveTransporter" parent="OliveTransporterPath" unique_id=1043901175 instance=ExtResource("5_f2txt")]
-position = Vector2(1112, 873)
+position = Vector2(1083, 990)
 
 [node name="OilRefinery" parent="." unique_id=511384656 instance=ExtResource("7_n6hdu")]
-position = Vector2(1662, 774)
+position = Vector2(1651, 709)
 
 [node name="OilBarrelTransporterPath" type="Path2D" parent="." unique_id=440225832]
 curve = SubResource("Curve2D_8cye3")
@@ -311,6 +428,18 @@ bus = &"Sfx"
 
 [node name="WallOilPour" parent="." unique_id=1221194213 instance=ExtResource("13_8b0r0")]
 position = Vector2(3071, 476)
+
+[node name="OliveTree1" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
+position = Vector2(498, 694)
+olives = SubResource("Resource_v5j5c")
+
+[node name="OliveTree2" parent="." unique_id=247438807 instance=ExtResource("2_vonw3")]
+position = Vector2(810, 834)
+olives = SubResource("Resource_5pxul")
+
+[node name="OliveTree3" parent="." unique_id=1715293771 instance=ExtResource("2_vonw3")]
+position = Vector2(226, 894)
+olives = SubResource("Resource_fedht")
 
 [node name="CameraTarget" type="Node2D" parent="." unique_id=1589072603]
 position = Vector2(959, 540)

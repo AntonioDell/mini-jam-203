@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dlidue5gocvyw" path="res://travel/travel_incrementer.tscn" id="2_3rmvk"]
 [ext_resource type="Script" uid="uid://bqj7jm8xew4wc" path="res://oil_refinery/oil_barrel_transporter_view.gd" id="2_yvl00"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="3_dre8e"]
-[ext_resource type="Texture2D" uid="uid://dhiwc4n8rkhea" path="res://0_sprites/scaled_down/Barrelrow.png" id="4_op1vi"]
+[ext_resource type="Texture2D" uid="uid://bu4m5m8rx22qc" path="res://0_sprites/original/Barrelrow.png" id="4_novdw"]
 [ext_resource type="Script" uid="uid://obq83lr7pjam" path="res://click_input_area.gd" id="5_ijnsq"]
 [ext_resource type="AudioStream" uid="uid://c4nn83bw7us87" path="res://1_sound/barrel roll.mp3" id="6_novdw"]
 
@@ -68,7 +68,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dre8e"]
-size = Vector2(64, 64)
+size = Vector2(92, 114)
 
 [node name="OilBarrelTransporter" type="PathFollow2D" unique_id=117764608]
 rotates = false
@@ -82,7 +82,8 @@ accelleration_curve = SubResource("Curve_3rmvk")
 script = ExtResource("2_yvl00")
 
 [node name="Sprite2D" type="Sprite2D" parent="OilBarrelTransporterView" unique_id=1265704392]
-texture = ExtResource("4_op1vi")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_novdw")
 hframes = 4
 vframes = 4
 

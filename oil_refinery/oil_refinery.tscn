@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b1qjinngjm2ir" path="res://oil_refinery/oil_refinery_view.gd" id="2_mrx85"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="3_is1oo"]
 [ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="3_rk0u1"]
-[ext_resource type="Texture2D" uid="uid://jvvkuoumqqrl" path="res://0_sprites/scaled_down/Press_3.png" id="4_is1oo"]
+[ext_resource type="Texture2D" uid="uid://bddrmv3scod5h" path="res://0_sprites/original/Press_3.png" id="4_f2ero"]
 [ext_resource type="AudioStream" uid="uid://xscug0636xam" path="res://1_sound/smashing olives.mp3" id="5_f2ero"]
 
 [sub_resource type="Animation" id="Animation_is1oo"]
@@ -69,7 +69,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rk0u1"]
-size = Vector2(120, 135)
+size = Vector2(202, 233)
 
 [node name="OilRefinery" type="Node2D" unique_id=511384656]
 script = ExtResource("1_bmtb4")
@@ -90,7 +90,8 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="OilRefineryView" unique_id=1352943891]
-texture = ExtResource("4_is1oo")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_f2ero")
 hframes = 3
 vframes = 3
 frame = 1
@@ -123,5 +124,5 @@ parameters/looping = false
 [node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("3_rk0u1")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=2064281597]
-position = Vector2(0, 5.5)
+position = Vector2(0, 12.5)
 shape = SubResource("RectangleShape2D_rk0u1")

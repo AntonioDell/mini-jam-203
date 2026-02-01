@@ -15,8 +15,12 @@ signal all_waves_done
 var attacker_scene := preload("res://attacker/attacker.tscn")
 var current_wave := 0
 
-func _ready():
+
+func start_waves():
 	_on_timeout()
+
+
+func _ready():
 	$Timer.timeout.connect(_on_timeout)
 
 func _on_timeout():

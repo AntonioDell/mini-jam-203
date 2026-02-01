@@ -26,6 +26,10 @@ func _ready():
 	)
 	wave_controller.next_wave_started.connect(_on_next_wave_started)
 	wave_controller.all_waves_done.connect(_on_all_waves_done)
+	
+	%UI.hide()
+	%Tutorial.start()
+	%Tutorial.tutorial_finished.connect(_on_tutorial_finished)
 
 func _on_loose_condition_amount_changed(amount: int):
 	if amount == 0:
@@ -42,3 +46,8 @@ func _on_next_wave_started(wave: int):
 
 func _on_all_waves_done():
 	game_won.emit(score.amount)
+
+func _on_tutorial_finished():
+	%Tutorial.hide()
+	%UI.show()
+	wave_controller.start_waves()
