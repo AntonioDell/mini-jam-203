@@ -31,14 +31,18 @@ hframes = 3
 vframes = 2
 
 [node name="Label" type="RichTextLabel" parent="OliveTreeView" unique_id=750236965]
-offset_left = -32.0
-offset_top = 172.0
-offset_right = 32.0
-offset_bottom = 236.0
+visible = false
+offset_left = -17.0
+offset_top = 173.0
+offset_right = 17.0
+offset_bottom = 207.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
 theme = ExtResource("5_ul1kf")
 text = "0"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -47,7 +51,9 @@ vertical_alignment = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=1674715558]
 position = Vector2(5.5, 141.5)
 shape = SubResource("RectangleShape2D_jlggk")
+debug_color = Color(0, 0.6, 0.69803923, 0)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ClickInputArea" unique_id=1001266460]
 position = Vector2(5, -18)
 shape = SubResource("CircleShape2D_jlggk")
+debug_color = Color(0, 0.6, 0.69803923, 0)

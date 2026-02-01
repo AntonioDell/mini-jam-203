@@ -84,6 +84,7 @@ vframes = 3
 script = ExtResource("2_fb8o8")
 
 [node name="HealthLabel" type="RichTextLabel" parent="AttackerView" unique_id=588985045]
+visible = false
 offset_left = -16.0
 offset_top = 46.0
 offset_right = 16.0

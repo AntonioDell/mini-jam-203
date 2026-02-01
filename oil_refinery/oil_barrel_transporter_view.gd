@@ -23,6 +23,8 @@ func _on_path_travelled_changed(amount: float):
 
 func _on_travel_arrived(is_returned: bool):
 	$AnimationPlayer.stop()
+	$AudioStreamPlayer2D.stop()
 
 func _on_travel_started():
 	$AnimationPlayer.play("oil_barrel_rolling")
+	$AudioStreamPlayer2D.play()

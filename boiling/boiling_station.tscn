@@ -91,6 +91,7 @@ vframes = 3
 script = ExtResource("1_rhyhh")
 
 [node name="Label" type="RichTextLabel" parent="BoilingStationView" unique_id=715288455]
+visible = false
 offset_left = -85.0
 offset_top = 32.0
 offset_right = 85.0

@@ -138,6 +138,14 @@ bg_color = Color(0.6, 0.5568628, 0.101960786, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6cw85"]
 bg_color = Color(0.94509804, 0.94509804, 0.9019608, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndmpe"]
+bg_color = Color(0.94509804, 0.94509804, 0.9019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ceoj"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.94509804, 0.94509804, 0.9019608, 1)
+
 [resource]
 Button/colors/font_color = Color(0.94509804, 0.94509804, 0.9019608, 1)
 Button/colors/font_hover_color = Color(0.6392157, 0.69411767, 0.54901963, 1)
@@ -177,7 +185,9 @@ MainMenuButton/base_type = &"Button"
 MainMenuButton/colors/font_color = Color(0.23921569, 0.25490198, 0.15294118, 1)
 MainMenuButton/styles/normal = SubResource("StyleBoxFlat_e1x85")
 Panel/styles/panel = SubResource("StyleBoxFlat_6cw85")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ndmpe")
 RichTextLabel/colors/default_color = Color(0.29411766, 0.29411766, 0.22745098, 1)
 RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_0ceoj")
 Title/base_type = &"RichTextLabel"
 Title/font_sizes/normal_font_size = 68

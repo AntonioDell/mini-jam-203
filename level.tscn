@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://x6nfo0koaxjj" path="res://level.gd" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://b4b7cvlcguvof" path="res://olive_collection/olive_collection_controller.tscn" id="2_0b4ue"]
-[ext_resource type="AudioStream" uid="uid://db86e67ycj73r" path="res://1_sound/castle defenderss.mp3" id="2_5pxul"]
 [ext_resource type="PackedScene" uid="uid://bijo6npvvkc2f" path="res://attacker/attacker_controller.tscn" id="2_aicyk"]
 [ext_resource type="PackedScene" uid="uid://b1avv1fyv2bpk" path="res://oil_refinery/oil_refinery_controller.tscn" id="2_km5ld"]
 [ext_resource type="PackedScene" uid="uid://eemw44ccclcd" path="res://game_controller.tscn" id="2_v5j5c"]
@@ -10,18 +9,22 @@
 [ext_resource type="PackedScene" uid="uid://stc5nq6aj0dw" path="res://settings_container.tscn" id="3_4c15r"]
 [ext_resource type="Script" uid="uid://dr2xkieskyly1" path="res://holder_resource.gd" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://b1rosb3f76rkd" path="res://boiling/boiling_station_controller.tscn" id="4_8cye3"]
+[ext_resource type="AudioStream" uid="uid://crrcvpk7k2h1t" path="res://1_sound/loop.mp3" id="4_fj6e6"]
 [ext_resource type="PackedScene" uid="uid://bpgkxqylobu5h" path="res://wall/wall_controller.tscn" id="5_2orkt"]
 [ext_resource type="PackedScene" uid="uid://dnhpqe5uidffi" path="res://olive_collection/olive_transporter.tscn" id="5_f2txt"]
 [ext_resource type="PackedScene" uid="uid://brv6wkifv0h1i" path="res://wave_controller.tscn" id="7_h6smj"]
 [ext_resource type="PackedScene" uid="uid://rk807chw8e65" path="res://oil_refinery/oil_refinery.tscn" id="7_n6hdu"]
 [ext_resource type="PackedScene" uid="uid://ci4gdrt0lv6yn" path="res://boiling/boiling_station.tscn" id="9_8cye3"]
 [ext_resource type="PackedScene" uid="uid://cyo02kph1qupo" path="res://wall/wall.tscn" id="10_8cye3"]
+[ext_resource type="Texture2D" uid="uid://ctf550oou2nhh" path="res://0_sprites/original/CastleFrame.png" id="12_u3yai"]
 [ext_resource type="PackedScene" uid="uid://yo81i4nregxs" path="res://wall/wall_oil_pour.tscn" id="13_8b0r0"]
+[ext_resource type="Texture2D" uid="uid://bjy88ph5ltjpp" path="res://0_sprites/original/FarmFrame.png" id="13_fj6e6"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="17_fedht"]
 [ext_resource type="AudioStream" uid="uid://gxx2k4cag041" path="res://1_sound/enemyhit1.mp3" id="18_ilwjd"]
 [ext_resource type="AudioStream" uid="uid://bjds6c84xokwq" path="res://1_sound/enemyhit2.mp3" id="19_y3bce"]
 [ext_resource type="AudioStream" uid="uid://bosmj0khnv3v0" path="res://1_sound/enemyhit3.mp3" id="20_u3yai"]
 [ext_resource type="AudioStream" uid="uid://cch4m3531fkpg" path="res://1_sound/enemyhit4.mp3" id="21_fj6e6"]
+[ext_resource type="Script" uid="uid://d2plc2i5sqm57" path="res://camera_target.gd" id="25_fj6e6"]
 
 [sub_resource type="Gradient" id="Gradient_f2txt"]
 offsets = PackedFloat32Array(0.8429561)
@@ -49,31 +52,31 @@ metadata/_custom_type_script = "uid://dr2xkieskyly1"
 
 [sub_resource type="Curve2D" id="Curve2D_n6hdu"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 260, 385, 0, 0, 0, 0, 652, 391)
+"points": PackedVector2Array(0, 0, 0, 0, 1112, 873, 0, 0, 0, 0, 1520, 970)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_8cye3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 951, 429, 0, 0, 0, 0, 1136, 529, 0, 0, 0, 0, 1198, 414, 0, 0, 0, 0, 1287, 450)
+"points": PackedVector2Array(0, 0, 0, 0, 1748, 839, 0, 0, 0, 0, 2232, 887)
 }
-point_count = 4
+point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_h6smj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1179, 672, 0, 0, 0, 0, 992, 600, 0, 0, 0, 0, 872, 665, 0, 0, 0, 0, 659, 549)
+"points": PackedVector2Array(0, 0, 0, 0, 2891, 1108, 0, 0, 0, 0, 2694, 932, 0, 0, 0, 0, 2110, 835, 0, 0, 0, 0, 1856, 832)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_v5j5c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1218.0319, 633.78253, 0, 0, 0, 0, 976, 532, 0, 0, 0, 0, 870, 627, 0, 0, 0, 0, 744, 553)
+"points": PackedVector2Array(0, 0, 0, 0, 2471, 1099, 0, 0, 0, 0, 2323, 973, 0, 0, 0, 0, 2035, 904, 0, 0, 0, 0, 1815, 901)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_5pxul"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1199, 576, 0, 0, 0, 0, 1032, 475, 0, 0, 0, 0, 860, 593, 0, 0, 0, 0, 820, 553)
+"points": PackedVector2Array(0, 0, 0, 0, 3058, 1118, 0, 0, 0, 0, 2672, 813, 0, 0, 0, 0, 2104, 766, 0, 0, 0, 0, 1881, 775)
 }
 point_count = 4
 
@@ -144,19 +147,27 @@ size_flags_vertical = 0
 theme = ExtResource("17_fedht")
 text = "Settings"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=856032204]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer/UI/MarginContainer/HBoxContainer" unique_id=1197161511]
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=1860548651]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/Panel" unique_id=856032204]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer/UI/MarginContainer/Panel/HBoxContainer" unique_id=1197161511]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("17_fedht")
 text = "Score:"
 fit_content = true
 autowrap_mode = 0
 
-[node name="ScoreCount" type="RichTextLabel" parent="CanvasLayer/UI/MarginContainer/HBoxContainer" unique_id=37801767]
+[node name="ScoreCount" type="RichTextLabel" parent="CanvasLayer/UI/MarginContainer/Panel/HBoxContainer" unique_id=37801767]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -167,15 +178,10 @@ autowrap_mode = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=34172086]
 process_mode = 3
-stream = ExtResource("2_5pxul")
+stream = ExtResource("4_fj6e6")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
-
-[node name="BG" type="Sprite2D" parent="." unique_id=1954753282]
-texture = SubResource("GradientTexture2D_1ainy")
-centered = false
-metadata/_edit_lock_ = true
 
 [node name="GameController" parent="." unique_id=1661171547 node_paths=PackedStringArray("attacker_controller") instance=ExtResource("2_v5j5c")]
 attacker_controller = NodePath("../AttackerController")
@@ -195,35 +201,55 @@ oil_barrel_transporter_path = NodePath("../OilBarrelTransporterPath")
 [node name="WaveController" parent="." unique_id=726057860 node_paths=PackedStringArray("attacker_spawn_points") instance=ExtResource("7_h6smj")]
 attacker_spawn_points = [NodePath("../AttackerPath1"), NodePath("../AttackerPath2"), NodePath("../AttackerPath3")]
 
+[node name="BG" type="Sprite2D" parent="." unique_id=1954753282]
+texture = SubResource("GradientTexture2D_1ainy")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Node2D" parent="." unique_id=76746008]
+metadata/_edit_lock_ = true
+
+[node name="CastleFrame" type="Sprite2D" parent="Background" unique_id=1846778211]
+position = Vector2(1910, 0)
+texture = ExtResource("12_u3yai")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="FarmFrame" type="Sprite2D" parent="Background" unique_id=1373786754]
+texture = ExtResource("13_fj6e6")
+centered = false
+flip_h = true
+metadata/_edit_lock_ = true
+
 [node name="OliveTree1" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
-position = Vector2(432, 643)
+position = Vector2(498, 694)
 olives = SubResource("Resource_v5j5c")
 
 [node name="OliveTree2" parent="." unique_id=247438807 instance=ExtResource("2_vonw3")]
-position = Vector2(744, 783)
+position = Vector2(810, 834)
 olives = SubResource("Resource_5pxul")
 
 [node name="OliveTree3" parent="." unique_id=1715293771 instance=ExtResource("2_vonw3")]
-position = Vector2(160, 843)
+position = Vector2(226, 894)
 olives = SubResource("Resource_fedht")
 
 [node name="OliveTransporterPath" type="Path2D" parent="." unique_id=980445474]
 curve = SubResource("Curve2D_n6hdu")
 
 [node name="OliveTransporter" parent="OliveTransporterPath" unique_id=1043901175 instance=ExtResource("5_f2txt")]
-position = Vector2(260, 385)
+position = Vector2(1112, 873)
 
 [node name="OilRefinery" parent="." unique_id=511384656 instance=ExtResource("7_n6hdu")]
-position = Vector2(857, 394)
+position = Vector2(1662, 882)
 
 [node name="OilBarrelTransporterPath" type="Path2D" parent="." unique_id=440225832]
 curve = SubResource("Curve2D_8cye3")
 
 [node name="BoilingStation" parent="." unique_id=1758307242 instance=ExtResource("9_8cye3")]
-position = Vector2(1288, 501)
+position = Vector2(2336, 824)
 
 [node name="Wall" parent="." unique_id=2078438762 instance=ExtResource("10_8cye3")]
-position = Vector2(1506, 363)
+position = Vector2(3074, 291)
 
 [node name="AttackerPath1" type="Path2D" parent="." unique_id=1280330733]
 position = Vector2(777, 67)
@@ -244,4 +270,20 @@ volume_db = 1.0
 bus = &"Sfx"
 
 [node name="WallOilPour" parent="." unique_id=1221194213 instance=ExtResource("13_8b0r0")]
-position = Vector2(1509, 546)
+position = Vector2(3075, 478)
+
+[node name="CameraTarget" type="Node2D" parent="." unique_id=1589072603]
+position = Vector2(959, 540)
+script = ExtResource("25_fj6e6")
+
+[node name="Camera2D" type="Camera2D" parent="CameraTarget" unique_id=36725893]
+limit_left = 0
+limit_top = 0
+limit_right = 3830
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_left_margin = 0.8
+drag_right_margin = 0.8
+editor_draw_drag_margin = true

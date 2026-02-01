@@ -12,7 +12,7 @@ func setup(pouring_oil: HolderResource):
 	_update_display()
 
 func _update_display():
-	$OilPourLabel.text = str(pouring_oil.amount)
+	#$OilPourLabel.text = str(pouring_oil.amount)
 	if pouring_oil.amount == 0:
 		hide()
 	else:

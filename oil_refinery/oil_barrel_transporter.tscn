@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="3_dre8e"]
 [ext_resource type="Texture2D" uid="uid://dhiwc4n8rkhea" path="res://0_sprites/scaled_down/Barrelrow.png" id="4_op1vi"]
 [ext_resource type="Script" uid="uid://obq83lr7pjam" path="res://click_input_area.gd" id="5_ijnsq"]
+[ext_resource type="AudioStream" uid="uid://c4nn83bw7us87" path="res://1_sound/barrel roll.mp3" id="6_novdw"]
 
 [sub_resource type="Curve" id="Curve_3rmvk"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -86,24 +87,28 @@ hframes = 4
 vframes = 4
 
 [node name="BarrelLabel" type="RichTextLabel" parent="OilBarrelTransporterView" unique_id=1484439505]
-offset_left = -32.0
+visible = false
+offset_left = -46.0
 offset_top = -66.0
-offset_right = 40.0
+offset_right = 45.0
 offset_bottom = -32.0
 theme = ExtResource("3_dre8e")
 text = "Barrel"
 fit_content = true
+autowrap_mode = 0
 
 [node name="BarrelCount" type="RichTextLabel" parent="OilBarrelTransporterView" unique_id=1081533642]
 unique_name_in_owner = true
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+visible = false
+offset_left = -17.0
+offset_top = 32.0
+offset_right = 17.0
+offset_bottom = 66.0
 mouse_filter = 2
 theme = ExtResource("3_dre8e")
 text = "0"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -111,6 +116,8 @@ vertical_alignment = 1
 libraries/ = SubResource("AnimationLibrary_suari")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OilBarrelTransporterView" unique_id=252047089]
+stream = ExtResource("6_novdw")
+parameters/looping = true
 
 [node name="ClickInputArea" type="Area2D" parent="." unique_id=290085439]
 script = ExtResource("5_ijnsq")

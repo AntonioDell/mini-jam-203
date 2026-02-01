@@ -13,5 +13,5 @@ func setup(oil_storage: HolderResource, health: HolderResource):
 	_update_display()
 
 func _update_display(_x: int = 0):
-	$StoredOilCount.text = "%s" % oil_storage.amount
-	$HealthCount.text = "%s" % health.amount
+	%StoredOilCount.text = "%s" % oil_storage.amount
+	%HealthCount.text = "%s" % health.amount
