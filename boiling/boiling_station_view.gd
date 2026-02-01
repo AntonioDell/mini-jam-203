@@ -17,9 +17,11 @@ var did_last_one_burn_down := false
 func _update_display(_x: int = 0):
 	if oil_barrel.amount == 0:
 		$OilBarrelSprite.hide()
+		$AudioStreamPlayer2D.stop()
 		$State.text = "Empty" if not did_last_one_burn_down else "Burnt :("
 		return
 	$OilBarrelSprite.show()
+	$AudioStreamPlayer2D.play()
 	
 	var heating_thresholds = max_heating / 4
 	

@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dwu7iddkweao2" path="res://title_screen.gd" id="1_ak2if"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="2_ig5kc"]
+[ext_resource type="PackedScene" uid="uid://stc5nq6aj0dw" path="res://settings_container.tscn" id="3_ig5kc"]
 
 [node name="MainMenu" type="Node" unique_id=1152096125]
+process_mode = 3
 script = ExtResource("1_ak2if")
 
 [node name="UI" type="Control" parent="." unique_id=2137649804]
@@ -69,63 +71,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 
-[node name="SettingsContainer" type="VBoxContainer" parent="UI/PanelContainer/CenterContainer/VBoxContainer2" unique_id=892171936]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 30
-
-[node name="SettingsGrid" type="GridContainer" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer" unique_id=670581731]
-layout_mode = 2
-size_flags_horizontal = 4
-columns = 2
-
-[node name="MusicLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=808948150]
-layout_mode = 2
-text = "Music"
-fit_content = true
-autowrap_mode = 0
-
-[node name="MusicSlider" type="HSlider" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=740533351]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 1
-theme = ExtResource("2_ig5kc")
-max_value = 1.0
-step = 0.01
-
-[node name="SfxLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=944574381]
-layout_mode = 2
-text = "Sfx"
-fit_content = true
-autowrap_mode = 0
-
-[node name="SfxSlider" type="HSlider" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=536405331]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.01
-
-[node name="MuteLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=458994463]
-layout_mode = 2
-
-[node name="MuteCheckBox" type="CheckBox" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer/SettingsGrid" unique_id=978368746]
+[node name="SettingsContainer" parent="UI/PanelContainer/CenterContainer/VBoxContainer2" unique_id=600335656 instance=ExtResource("3_ig5kc")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-text = "Mute"
-
-[node name="SettingsBackButton" type="Button" parent="UI/PanelContainer/CenterContainer/VBoxContainer2/SettingsContainer" unique_id=352160047]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Go Back"

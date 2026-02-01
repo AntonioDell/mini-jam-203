@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://stc5nq6aj0dw"]
+
+[ext_resource type="Script" uid="uid://bmtb020s462sc" path="res://settings_container.gd" id="1_j7cah"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="2_qnf0u"]
+
+[node name="SettingsContainer" type="VBoxContainer" unique_id=600335656]
+process_mode = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+script = ExtResource("1_j7cah")
+
+[node name="SettingsGrid" type="GridContainer" parent="." unique_id=140046790]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="MusicLabel" type="RichTextLabel" parent="SettingsGrid" unique_id=1159092034]
+layout_mode = 2
+text = "Music"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MusicSlider" type="HSlider" parent="SettingsGrid" unique_id=1198201586]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme = ExtResource("2_qnf0u")
+max_value = 1.0
+step = 0.01
+
+[node name="SfxLabel" type="RichTextLabel" parent="SettingsGrid" unique_id=689135504]
+layout_mode = 2
+text = "Sfx"
+fit_content = true
+autowrap_mode = 0
+
+[node name="SfxSlider" type="HSlider" parent="SettingsGrid" unique_id=908367779]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="MuteLabel" type="RichTextLabel" parent="SettingsGrid" unique_id=1283263450]
+layout_mode = 2
+
+[node name="MuteCheckBox" type="CheckBox" parent="SettingsGrid" unique_id=992417454]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Mute"
+
+[node name="SettingsBackButton" type="Button" parent="." unique_id=750869275]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
+[node name="MainMenuButton" type="Button" parent="." unique_id=1068884337]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Main Menu"

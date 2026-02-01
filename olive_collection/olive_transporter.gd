@@ -2,19 +2,21 @@ class_name OliveTransporter
 extends PathFollow2D
 
 
-@export var time_to_arrival := 1.0
+@export var time_to_arrival := 2.0
 
 
 var olives: HolderResource = HolderResource.new()
 var travel: TravelResource = TravelResource.new()
 
 var controller: OliveCollectionController
+var refinery_controller: OilRefineryController
 
 func _ready():
 	olives = GlobalSaveGameController.register_holder_resource(name, olives)
 	travel = GlobalSaveGameController.register_travel_resource(name, travel)
 	
 	controller = get_tree().get_first_node_in_group("OliveCollectionController")
+	refinery_controller = get_tree().get_first_node_in_group("OilRefineryController")
 	
 	_setup_travel()
 	_setup_children()
@@ -43,7 +45,6 @@ func _on_transporter_clicked():
 
 func _on_travel_arrived(is_returning: bool):
 	if not is_returning:
-		var refinery_controller: OilRefineryController = get_tree().get_first_node_in_group("OilRefineryController")
 		refinery_controller.transfer_olives_to_refinery(olives)
 	else:
 		controller.register_desitnation(olives)

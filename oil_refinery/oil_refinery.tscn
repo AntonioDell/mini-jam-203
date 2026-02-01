@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="3_is1oo"]
 [ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="3_rk0u1"]
 [ext_resource type="Texture2D" uid="uid://jvvkuoumqqrl" path="res://0_sprites/scaled_down/Press_3.png" id="4_is1oo"]
+[ext_resource type="AudioStream" uid="uid://xscug0636xam" path="res://1_sound/smashing olives.mp3" id="5_f2ero"]
 
 [sub_resource type="Animation" id="Animation_is1oo"]
 length = 0.001
@@ -19,6 +20,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_f2ero"]
@@ -35,6 +48,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4gw06"]
@@ -86,6 +111,11 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="OilRefineryView" unique_id=1390128023]
 libraries/ = SubResource("AnimationLibrary_4gw06")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="OilRefineryView" unique_id=1813561866]
+stream = ExtResource("5_f2ero")
+bus = &"Sfx"
+parameters/looping = false
 
 [node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("3_rk0u1")]
 

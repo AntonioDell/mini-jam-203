@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1avv1fyv2bpk" path="res://oil_refinery/oil_refinery_controller.tscn" id="2_km5ld"]
 [ext_resource type="PackedScene" uid="uid://eemw44ccclcd" path="res://game_controller.tscn" id="2_v5j5c"]
 [ext_resource type="PackedScene" uid="uid://dl4d6w6yy6jvs" path="res://olive_collection/olive_tree.tscn" id="2_vonw3"]
+[ext_resource type="PackedScene" uid="uid://stc5nq6aj0dw" path="res://settings_container.tscn" id="3_4c15r"]
 [ext_resource type="Script" uid="uid://dr2xkieskyly1" path="res://holder_resource.gd" id="3_oi3di"]
 [ext_resource type="PackedScene" uid="uid://b1rosb3f76rkd" path="res://boiling/boiling_station_controller.tscn" id="4_8cye3"]
 [ext_resource type="PackedScene" uid="uid://bpgkxqylobu5h" path="res://wall/wall_controller.tscn" id="5_2orkt"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ci4gdrt0lv6yn" path="res://boiling/boiling_station.tscn" id="9_8cye3"]
 [ext_resource type="PackedScene" uid="uid://cyo02kph1qupo" path="res://wall/wall.tscn" id="10_8cye3"]
 [ext_resource type="PackedScene" uid="uid://yo81i4nregxs" path="res://wall/wall_oil_pour.tscn" id="13_8b0r0"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="17_fedht"]
 
 [sub_resource type="Gradient" id="Gradient_f2txt"]
 offsets = PackedFloat32Array(0.8429561)
@@ -74,10 +76,55 @@ point_count = 4
 [node name="Level" type="Node2D" unique_id=800733794]
 script = ExtResource("1_vonw3")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=557764138]
+process_mode = 3
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=138463520]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="SettingsPanel" type="PanelContainer" parent="CanvasLayer/UI" unique_id=29314953]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("17_fedht")
+theme_type_variation = &"MainMenu"
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UI/SettingsPanel" unique_id=1896028300]
+layout_mode = 2
+
+[node name="SettingsContainer" parent="CanvasLayer/UI/SettingsPanel/CenterContainer" unique_id=600335656 instance=ExtResource("3_4c15r")]
+unique_name_in_owner = true
+layout_mode = 2
+show_main_menu_button = true
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/UI" unique_id=728395382]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1738.0
+offset_top = 34.0
+offset_right = 1851.0
+offset_bottom = 88.0
+theme = ExtResource("17_fedht")
+text = "Settings"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=34172086]
+process_mode = 3
 stream = ExtResource("2_5pxul")
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1954753282]
 texture = SubResource("GradientTexture2D_1ainy")
@@ -143,4 +190,4 @@ position = Vector2(777, 67)
 curve = SubResource("Curve2D_5pxul")
 
 [node name="WallOilPour" parent="." unique_id=1221194213 instance=ExtResource("13_8b0r0")]
-position = Vector2(1648, 477)
+position = Vector2(1509, 546)

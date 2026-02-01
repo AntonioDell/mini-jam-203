@@ -6,10 +6,7 @@ var level_screen_scene := preload("res://level.tscn")
 
 
 func _ready():
-	var title_screen: TitleScreen = title_screen_scene.instantiate()
-	add_child(title_screen)
-	title_screen.new_game_button_pressed.connect(_on_new_game_button_pressed)
-	title_screen.continue_button_pressed.connect(_on_continue_button_pressed)
+	_load_title_screen()
 
 func _on_new_game_button_pressed():
 	GlobalSaveGameController.reset_game_state()
@@ -19,9 +16,18 @@ func _on_continue_button_pressed():
 	_load_level()
 
 func _load_level():
-	var title_screen = get_child(0)
+	if get_child_count() > 0:
+		remove_child(get_child(0))
 	
 	var level_screen = level_screen_scene.instantiate()
 	add_child(level_screen)
+	level_screen.main_menu_button_pressed.connect(_load_title_screen)
+
+func _load_title_screen():
+	if get_child_count() > 0:
+		remove_child(get_child(0))
 	
-	remove_child(title_screen)
+	var title_screen: TitleScreen = title_screen_scene.instantiate()
+	add_child(title_screen)
+	title_screen.new_game_button_pressed.connect(_on_new_game_button_pressed)
+	title_screen.continue_button_pressed.connect(_on_continue_button_pressed)

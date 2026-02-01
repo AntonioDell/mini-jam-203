@@ -5,6 +5,7 @@ var controller: OliveCollectionController
 var travel: TravelResource
 var olives: HolderResource
 
+
 func setup(olives: HolderResource, travel: TravelResource, controller: OliveCollectionController):
 	self.controller = controller
 	self.travel = travel
@@ -15,21 +16,21 @@ func setup(olives: HolderResource, travel: TravelResource, controller: OliveColl
 	
 	_update_cart_display()
 
+
 func _on_travel_changed(amount: float):
 	if amount != 0.0 and amount != 1.0 and not $AnimationPlayer.is_playing():
 		if not travel.is_returning:
 			$AnimationPlayer.play("push_cart_right")
+			$AudioStreamPlayer2D.play()
 		else:
 			$AnimationPlayer.play("push_cart_left")
+			$AudioStreamPlayer2D.play()
 		
 	_update_cart_display()
 
 func _on_travel_arrived(is_returned: bool):
 	$AnimationPlayer.stop()
-	if not is_returned:
-		print("Arrived")
-	else:
-		print("Returned")
+	$AudioStreamPlayer2D.stop()
 	_update_cart_display()
 
 func _update_cart_display(_x = 0):
