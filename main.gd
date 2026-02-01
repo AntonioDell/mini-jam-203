@@ -3,6 +3,7 @@ extends Node
 
 var title_screen_scene := preload("res://title_screen.tscn")
 var level_screen_scene := preload("res://level.tscn")
+var credits_screen_scene := preload("res://credits.tscn")
 
 
 func _ready():
@@ -22,6 +23,7 @@ func _load_level():
 	var level_screen = level_screen_scene.instantiate()
 	add_child(level_screen)
 	level_screen.main_menu_button_pressed.connect(_load_title_screen)
+	level_screen.game_lost.connect(_on_game_lost)
 
 func _load_title_screen():
 	if get_child_count() > 0:
@@ -31,3 +33,12 @@ func _load_title_screen():
 	add_child(title_screen)
 	title_screen.new_game_button_pressed.connect(_on_new_game_button_pressed)
 	title_screen.continue_button_pressed.connect(_on_continue_button_pressed)
+
+func _on_game_lost(score: int):
+	if get_child_count() > 0:
+		remove_child(get_child(0))
+	
+	var credits_screen = credits_screen_scene.instantiate()
+	credits_screen.score = score
+	credits_screen.play_again_button_pressed.connect(_load_level)
+	add_child(credits_screen)

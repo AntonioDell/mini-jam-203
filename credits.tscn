@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dvk838h1nmbsb"]
+
+[ext_resource type="Script" uid="uid://cxi775710bkek" path="res://credits.gd" id="1_c1t8d"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="1_nm7lk"]
+
+[node name="Credits" type="Node" unique_id=1899627073]
+script = ExtResource("1_c1t8d")
+
+[node name="UI" type="Control" parent="." unique_id=159790212]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI" unique_id=357374193]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nm7lk")
+theme_type_variation = &"MainMenu"
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/PanelContainer" unique_id=1632919003]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer/CenterContainer" unique_id=2050296843]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="ThankYouLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer" unique_id=764356948]
+layout_mode = 2
+theme_type_variation = &"Title"
+text = "Thank you for playing!"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer" unique_id=1290279586]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Your score: <here>"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer/CenterContainer/VBoxContainer" unique_id=1819392099]
+layout_mode = 2
+
+[node name="CreatorsLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer/VBoxContainer" unique_id=556009221]
+layout_mode = 2
+text = "Sound by skidnney"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreatorsLabel2" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer/VBoxContainer" unique_id=63897309]
+layout_mode = 2
+text = "Art by Lisyari"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreatorsLabel3" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer/VBoxContainer" unique_id=1574508434]
+layout_mode = 2
+text = "Programming by AntonioDA"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="UI/PanelContainer/CenterContainer/VBoxContainer" unique_id=1020198110]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Play again"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PanelContainer/CenterContainer/VBoxContainer" unique_id=1719912770]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1948189191]
+layout_mode = 2
+text = "Check our"
+fit_content = true
+autowrap_mode = 0
+
+[node name="LinkButton" type="LinkButton" parent="UI/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=2098648271]
+layout_mode = 2
+text = "itch.io page"
+uri = "https://antonioda.itch.io/mini-jam-203"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=901648355]
+layout_mode = 2
+text = "for more info on the game"
+fit_content = true
+autowrap_mode = 0

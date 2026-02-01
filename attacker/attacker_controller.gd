@@ -2,6 +2,9 @@ class_name AttackerController
 extends Node
 
 
+signal attacker_dieded
+
+
 var wall_health: HolderResource
 var pouring_oil: HolderResource
 # TODO: Make saveable
@@ -19,6 +22,7 @@ func attacker_arrived(attacker_health: HolderResource):
 
 func attacker_died(attacker_health: HolderResource):
 	attackers_to_damage.erase(attacker_health)
+	attacker_dieded.emit()
 
 func damage_wall():
 	wall_health.amount = maxi(wall_health.amount - 1, 0)

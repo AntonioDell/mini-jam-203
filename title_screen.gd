@@ -16,10 +16,12 @@ func _ready():
 	%SettingsContainer.back_button_pressed.connect(_show_main_menu_buttons)
 	%NewGameButton.pressed.connect(new_game_button_pressed.emit)
 	
-	if GlobalSaveGameController.save_game_data.game_state.is_empty():
-		$%ContinueButton.hide()
-	else:
-		$%ContinueButton.show()
+	# FIXME: Reloading dynamic entities does not yet work well
+	#if GlobalSaveGameController.save_game_data.game_state.is_empty():
+	#	$%ContinueButton.hide()
+	#else:
+	#	$%ContinueButton.show()
+	%ContinueButton.hide()
 	$%ContinueButton.pressed.connect(continue_button_pressed.emit)
 
 func _show_settings():
