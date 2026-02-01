@@ -7,9 +7,12 @@ signal input_area_released
 
 func _ready():
 	mouse_entered.connect(func(): 
+		print("mouse")
 		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
-		is_mouse_hovering = true)
+		is_mouse_hovering = true
+	)
 	mouse_exited.connect(func(): 
+		print("mouse")
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		is_mouse_hovering = false
 		if is_click_in_progress:

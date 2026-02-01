@@ -48,6 +48,7 @@ func _on_all_waves_done():
 	game_won.emit(score.amount)
 
 func _on_tutorial_finished():
+	(%Tutorial.get_child(0) as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
 	%Tutorial.hide()
 	%UI.show()
 	wave_controller.start_waves()
