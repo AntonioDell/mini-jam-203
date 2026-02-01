@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xscug0636xam"
+path="res://.godot/imported/smashing olives.mp3-1769d54108971b2bdbd7d4fa4500e2f3.mp3str"
+
+[deps]
+
+source_file="res://sound/smashing olives.mp3"
+dest_files=["res://.godot/imported/smashing olives.mp3-1769d54108971b2bdbd7d4fa4500e2f3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

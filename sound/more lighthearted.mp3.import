@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://pg0dwdf2p781"
+path="res://.godot/imported/more lighthearted.mp3-a7b1b0337f423f81245eb50c19a9eb67.mp3str"
+
+[deps]
+
+source_file="res://sound/more lighthearted.mp3"
+dest_files=["res://.godot/imported/more lighthearted.mp3-a7b1b0337f423f81245eb50c19a9eb67.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
