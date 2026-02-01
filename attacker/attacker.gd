@@ -21,13 +21,11 @@ func _ready():
 	_setup_travel()
 	health.amount_changed.connect(_on_health_changed)
 
-
 func _setup_travel():
 	travel.arrived.connect(_on_travel_arrived)
 	travel.path_travelled_changed.connect(func(value: float): progress_ratio = value)
 	progress_ratio = travel.path_travelled
 	travel.is_travelling = true
-
 
 func _on_travel_arrived(_x: bool):
 	controller.attacker_arrived(health)

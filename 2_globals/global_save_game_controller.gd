@@ -14,7 +14,6 @@ func save():
 	var err := ResourceSaver.save(save_game_data, SAVE_GAME_PATH)
 	if err != OK:
 		GlobalErrorHandler.handle_error(self, "Failed to save game with error %s" % err)
-	print("Game saved")
 
 func reset_game_state():
 	save_game_data.game_state = {}

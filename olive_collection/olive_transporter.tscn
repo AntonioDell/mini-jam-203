@@ -6,10 +6,139 @@
 [ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="4_y6hwv"]
 [ext_resource type="Texture2D" uid="uid://d2stcekyuy3mx" path="res://0_sprites/scaled_down/WheelBarrow.png" id="4_yjpll"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="5_aslnj"]
+[ext_resource type="Texture2D" uid="uid://0pj557svnbr8" path="res://0_sprites/scaled_down/Workers.png" id="6_yjpll"]
 
 [sub_resource type="Curve" id="Curve_y6hwv"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Animation" id="Animation_yjpll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PusherRight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PusherLeft:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PusherLeft:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+
+[sub_resource type="Animation" id="Animation_kmyni"]
+resource_name = "push_cart_left"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PusherRight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PusherLeft:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PusherRight:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_aslnj"]
+resource_name = "push_cart_right"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PusherRight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PusherLeft:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PusherLeft:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [14, 15, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kmyni"]
+_data = {
+&"RESET": SubResource("Animation_yjpll"),
+&"push_cart_left": SubResource("Animation_kmyni"),
+&"push_cart_right": SubResource("Animation_aslnj")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w66k7"]
 size = Vector2(217, 95)
@@ -24,10 +153,11 @@ accelleration_curve = SubResource("Curve_y6hwv")
 [node name="OliveTransporterView" type="Node2D" parent="." unique_id=1231848277]
 script = ExtResource("3_ywpgr")
 
-[node name="Sprite2D" type="Sprite2D" parent="OliveTransporterView" unique_id=1935847201]
+[node name="Cart" type="Sprite2D" parent="OliveTransporterView" unique_id=1935847201]
 texture = ExtResource("4_yjpll")
 hframes = 2
 vframes = 3
+frame = 3
 
 [node name="Label" type="RichTextLabel" parent="OliveTransporterView" unique_id=952370263]
 offset_left = -32.0
@@ -41,6 +171,24 @@ text = "0
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PusherRight" type="Sprite2D" parent="OliveTransporterView" unique_id=923710253]
+visible = false
+position = Vector2(118, -18)
+texture = ExtResource("6_yjpll")
+hframes = 4
+vframes = 5
+frame = 11
+
+[node name="PusherLeft" type="Sprite2D" parent="OliveTransporterView" unique_id=1381263809]
+position = Vector2(-117, -18)
+texture = ExtResource("6_yjpll")
+hframes = 4
+vframes = 5
+frame = 14
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OliveTransporterView" unique_id=861324036]
+libraries/ = SubResource("AnimationLibrary_kmyni")
 
 [node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("4_y6hwv")]
 

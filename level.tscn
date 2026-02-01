@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://x6nfo0koaxjj" path="res://level.gd" id="1_vonw3"]
 [ext_resource type="PackedScene" uid="uid://b4b7cvlcguvof" path="res://olive_collection/olive_collection_controller.tscn" id="2_0b4ue"]
+[ext_resource type="AudioStream" uid="uid://db86e67ycj73r" path="res://1_sound/castle defenderss.mp3" id="2_5pxul"]
 [ext_resource type="PackedScene" uid="uid://bijo6npvvkc2f" path="res://attacker/attacker_controller.tscn" id="2_aicyk"]
 [ext_resource type="PackedScene" uid="uid://b1avv1fyv2bpk" path="res://oil_refinery/oil_refinery_controller.tscn" id="2_km5ld"]
 [ext_resource type="PackedScene" uid="uid://eemw44ccclcd" path="res://game_controller.tscn" id="2_v5j5c"]
@@ -73,6 +74,11 @@ point_count = 4
 [node name="Level" type="Node2D" unique_id=800733794]
 script = ExtResource("1_vonw3")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=34172086]
+stream = ExtResource("2_5pxul")
+autoplay = true
+bus = &"Music"
+
 [node name="BG" type="Sprite2D" parent="." unique_id=1954753282]
 texture = SubResource("GradientTexture2D_1ainy")
 centered = false
@@ -136,6 +142,5 @@ curve = SubResource("Curve2D_v5j5c")
 position = Vector2(777, 67)
 curve = SubResource("Curve2D_5pxul")
 
-[node name="WallOilPour" parent="." unique_id=1221194213 node_paths=PackedStringArray("wall") instance=ExtResource("13_8b0r0")]
+[node name="WallOilPour" parent="." unique_id=1221194213 instance=ExtResource("13_8b0r0")]
 position = Vector2(1648, 477)
-wall = NodePath("../Wall")

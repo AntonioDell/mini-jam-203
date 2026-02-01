@@ -9,23 +9,34 @@ func setup(olives: HolderResource, travel: TravelResource, controller: OliveColl
 	self.controller = controller
 	self.travel = travel
 	self.olives = olives
-	olives.amount_changed.connect(_update_display)
+	olives.amount_changed.connect(_update_cart_display)
 	travel.arrived.connect(_on_travel_arrived)
-	travel.path_travelled_changed.connect(_update_display)
+	travel.path_travelled_changed.connect(_on_travel_changed)
 	
-	_update_display()
+	_update_cart_display()
+
+func _on_travel_changed(amount: float):
+	if amount != 0.0 and amount != 1.0 and not $AnimationPlayer.is_playing():
+		if not travel.is_returning:
+			$AnimationPlayer.play("push_cart_right")
+		else:
+			$AnimationPlayer.play("push_cart_left")
+		
+	_update_cart_display()
 
 func _on_travel_arrived(is_returned: bool):
+	$AnimationPlayer.stop()
 	if not is_returned:
 		print("Arrived")
 	else:
 		print("Returned")
-	_update_display()
+	_update_cart_display()
 
-func _update_display(_x = 0):
+func _update_cart_display(_x = 0):
 	var amount = olives.amount
 	$Label.text = "%s" % amount
-	var flip_offset = 3 if travel.is_returning else 0
+	
+	var flip_offset = 0 if travel.is_returning else 3
 	var new_sprite_frame = flip_offset
 	var threshold_1 = controller.destination_max_amount / 2
 	if amount == 0:
@@ -34,4 +45,6 @@ func _update_display(_x = 0):
 		new_sprite_frame += 1
 	else:
 		new_sprite_frame += 2
-	$Sprite2D.frame = new_sprite_frame
+	$Cart.frame = new_sprite_frame
+	if flip_offset > 0:
+		pass
