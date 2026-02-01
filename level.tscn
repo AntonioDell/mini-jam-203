@@ -22,51 +22,51 @@ colors = PackedColorArray(0.94509804, 0.94509804, 0.9019608, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1ainy"]
 gradient = SubResource("Gradient_f2txt")
-width = 1152
-height = 648
+width = 1920
+height = 1080
 
-[sub_resource type="Resource" id="Resource_1ainy"]
+[sub_resource type="Resource" id="Resource_v5j5c"]
 script = ExtResource("3_oi3di")
 amount = 25
 metadata/_custom_type_script = "uid://dr2xkieskyly1"
 
-[sub_resource type="Resource" id="Resource_i2t4f"]
+[sub_resource type="Resource" id="Resource_5pxul"]
 script = ExtResource("3_oi3di")
 amount = 25
 metadata/_custom_type_script = "uid://dr2xkieskyly1"
 
-[sub_resource type="Resource" id="Resource_8cye3"]
+[sub_resource type="Resource" id="Resource_fedht"]
 script = ExtResource("3_oi3di")
-amount = 25
+amount = 5
 metadata/_custom_type_script = "uid://dr2xkieskyly1"
 
 [sub_resource type="Curve2D" id="Curve2D_n6hdu"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 96, 364, 0, 0, 0, 0, 291, 376)
+"points": PackedVector2Array(0, 0, 0, 0, 260, 385, 0, 0, 0, 0, 652, 391)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_8cye3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 432, 400, 0, 0, 0, 0, 548, 461)
+"points": PackedVector2Array(0, 0, 0, 0, 951, 429, 0, 0, 0, 0, 1136, 529, 0, 0, 0, 0, 1198, 414, 0, 0, 0, 0, 1287, 450)
 }
-point_count = 2
+point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_h6smj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1179, 672, 0, 0, 0, 0, 1047, 535, 0, 0, 0, 0, 960, 593, 0, 0, 0, 0, 860, 523)
+"points": PackedVector2Array(0, 0, 0, 0, 1179, 672, 0, 0, 0, 0, 992, 600, 0, 0, 0, 0, 872, 665, 0, 0, 0, 0, 659, 549)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_v5j5c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1218.0319, 633.78253, 0, 0, 0, 0, 1022.12756, 497.28256, 0, 0, 0, 0, 941.0637, 546.739, 0, 0, 0, 0, 885, 503)
+"points": PackedVector2Array(0, 0, 0, 0, 1218.0319, 633.78253, 0, 0, 0, 0, 976, 532, 0, 0, 0, 0, 870, 627, 0, 0, 0, 0, 744, 553)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_5pxul"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1199, 576, 0, 0, 0, 0, 1055, 455, 0, 0, 0, 0, 970, 505, 0, 0, 0, 0, 914, 483)
+"points": PackedVector2Array(0, 0, 0, 0, 1199, 576, 0, 0, 0, 0, 1032, 475, 0, 0, 0, 0, 860, 593, 0, 0, 0, 0, 820, 553)
 }
 point_count = 4
 
@@ -76,6 +76,7 @@ script = ExtResource("1_vonw3")
 [node name="BG" type="Sprite2D" parent="." unique_id=1954753282]
 texture = SubResource("GradientTexture2D_1ainy")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="GameController" parent="." unique_id=1661171547 instance=ExtResource("2_v5j5c")]
 
@@ -94,43 +95,47 @@ oil_barrel_transporter_path = NodePath("../OilBarrelTransporterPath")
 attacker_spawn_points = [NodePath("../AttackerPath1"), NodePath("../AttackerPath2"), NodePath("../AttackerPath3")]
 
 [node name="OliveTree1" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
-position = Vector2(122, 499)
-olives = SubResource("Resource_1ainy")
+position = Vector2(432, 643)
+olives = SubResource("Resource_v5j5c")
 
 [node name="OliveTree2" parent="." unique_id=247438807 instance=ExtResource("2_vonw3")]
-position = Vector2(248, 529)
-olives = SubResource("Resource_i2t4f")
+position = Vector2(744, 783)
+olives = SubResource("Resource_5pxul")
 
 [node name="OliveTree3" parent="." unique_id=1715293771 instance=ExtResource("2_vonw3")]
-position = Vector2(152, 606)
-olives = SubResource("Resource_8cye3")
+position = Vector2(160, 843)
+olives = SubResource("Resource_fedht")
 
 [node name="OliveTransporterPath" type="Path2D" parent="." unique_id=980445474]
 curve = SubResource("Curve2D_n6hdu")
 
 [node name="OliveTransporter" parent="OliveTransporterPath" unique_id=1043901175 instance=ExtResource("5_f2txt")]
-position = Vector2(96, 364)
+position = Vector2(260, 385)
 
 [node name="OilRefinery" parent="." unique_id=511384656 instance=ExtResource("7_n6hdu")]
-position = Vector2(348, 368)
+position = Vector2(857, 394)
 
 [node name="OilBarrelTransporterPath" type="Path2D" parent="." unique_id=440225832]
 curve = SubResource("Curve2D_8cye3")
 
 [node name="BoilingStation" parent="." unique_id=1758307242 instance=ExtResource("9_8cye3")]
-position = Vector2(666, 447)
+position = Vector2(1288, 501)
 
 [node name="Wall" parent="." unique_id=2078438762 instance=ExtResource("10_8cye3")]
-position = Vector2(836, 347)
+position = Vector2(1506, 363)
 
 [node name="AttackerPath1" type="Path2D" parent="." unique_id=1280330733]
+position = Vector2(777, 67)
 curve = SubResource("Curve2D_h6smj")
 
 [node name="AttackerPath2" type="Path2D" parent="." unique_id=483320874]
+position = Vector2(777, 67)
 curve = SubResource("Curve2D_v5j5c")
 
 [node name="AttackerPath3" type="Path2D" parent="." unique_id=936558252]
+position = Vector2(777, 67)
 curve = SubResource("Curve2D_5pxul")
 
-[node name="WallOilPour" parent="." unique_id=1221194213 instance=ExtResource("13_8b0r0")]
-position = Vector2(899, 426)
+[node name="WallOilPour" parent="." unique_id=1221194213 node_paths=PackedStringArray("wall") instance=ExtResource("13_8b0r0")]
+position = Vector2(1648, 477)
+wall = NodePath("../Wall")

@@ -2,15 +2,17 @@
 
 [ext_resource type="Script" uid="uid://d25361r47iv7p" path="res://olive_collection/olive_transporter.gd" id="1_d1ety"]
 [ext_resource type="PackedScene" uid="uid://dlidue5gocvyw" path="res://travel/travel_incrementer.tscn" id="2_y6hwv"]
-[ext_resource type="PackedScene" uid="uid://jc2ax3oafrlj" path="res://olive_collection/olive_transporter_view.tscn" id="3_y6hwv"]
+[ext_resource type="Script" uid="uid://bpbp6wrfb4etl" path="res://olive_collection/olive_transporter_view.gd" id="3_ywpgr"]
 [ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="4_y6hwv"]
+[ext_resource type="Texture2D" uid="uid://d2stcekyuy3mx" path="res://0_sprites/scaled_down/WheelBarrow.png" id="4_yjpll"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="5_aslnj"]
 
 [sub_resource type="Curve" id="Curve_y6hwv"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w66k7"]
-size = Vector2(64, 64)
+size = Vector2(217, 95)
 
 [node name="OliveTransporter" type="PathFollow2D" unique_id=846844082]
 rotates = false
@@ -19,9 +21,29 @@ script = ExtResource("1_d1ety")
 [node name="TravelIncrementer" parent="." unique_id=912653014 instance=ExtResource("2_y6hwv")]
 accelleration_curve = SubResource("Curve_y6hwv")
 
-[node name="OliveTransporterView" parent="." unique_id=1231848277 instance=ExtResource("3_y6hwv")]
+[node name="OliveTransporterView" type="Node2D" parent="." unique_id=1231848277]
+script = ExtResource("3_ywpgr")
+
+[node name="Sprite2D" type="Sprite2D" parent="OliveTransporterView" unique_id=1935847201]
+texture = ExtResource("4_yjpll")
+hframes = 2
+vframes = 3
+
+[node name="Label" type="RichTextLabel" parent="OliveTransporterView" unique_id=952370263]
+offset_left = -32.0
+offset_top = 59.0
+offset_right = 32.0
+offset_bottom = 123.0
+mouse_filter = 2
+theme = ExtResource("5_aslnj")
+text = "0
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("4_y6hwv")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=553337618]
+position = Vector2(-0.5, 11.5)
 shape = SubResource("RectangleShape2D_w66k7")

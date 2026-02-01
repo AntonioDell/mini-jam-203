@@ -4,19 +4,65 @@
 [ext_resource type="Script" uid="uid://3s6dbs4f7b85" path="res://attacker/attacker_view.gd" id="2_fb8o8"]
 [ext_resource type="PackedScene" uid="uid://dlidue5gocvyw" path="res://travel/travel_incrementer.tscn" id="2_j4p0w"]
 [ext_resource type="Script" uid="uid://3ceustfjoi8m" path="res://attacker/wall_damager.gd" id="3_8vx3t"]
+[ext_resource type="Texture2D" uid="uid://f4eeogdkh8r1" path="res://0_sprites/scaled_down/mrSuit.png" id="4_8vx3t"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="5_np54d"]
 
 [sub_resource type="Curve" id="Curve_8vx3t"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_j4p0w"]
-offsets = PackedFloat32Array(0.24458875)
-colors = PackedColorArray(0.8509804, 0.7607843, 0.63529414, 1)
+[sub_resource type="Animation" id="Animation_8vx3t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_np54d"]
-gradient = SubResource("Gradient_j4p0w")
-width = 32
+[sub_resource type="Animation" id="Animation_8jhuh"]
+resource_name = "attacker_damaging"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_k2jdh"]
+resource_name = "attacker_travelling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8jhuh"]
+_data = {
+&"RESET": SubResource("Animation_8vx3t"),
+&"attacker_damaging": SubResource("Animation_8jhuh"),
+&"attacker_travelling": SubResource("Animation_k2jdh")
+}
 
 [node name="Attacker" type="PathFollow2D" unique_id=1372274891]
 rotates = false
@@ -32,14 +78,16 @@ script = ExtResource("3_8vx3t")
 accelleration_curve = SubResource("Curve_8vx3t")
 
 [node name="AttackerView" type="Sprite2D" parent="." unique_id=1174173683]
-texture = SubResource("GradientTexture2D_np54d")
+texture = ExtResource("4_8vx3t")
+hframes = 3
+vframes = 3
 script = ExtResource("2_fb8o8")
 
 [node name="HealthLabel" type="RichTextLabel" parent="AttackerView" unique_id=588985045]
 offset_left = -16.0
-offset_top = -32.0
+offset_top = 46.0
 offset_right = 16.0
-offset_bottom = 32.0
+offset_bottom = 80.0
 mouse_filter = 2
 theme = ExtResource("5_np54d")
 text = "0"
@@ -47,3 +95,6 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AttackerView" unique_id=1611931712]
+libraries/ = SubResource("AnimationLibrary_8jhuh")

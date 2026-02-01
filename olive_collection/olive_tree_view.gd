@@ -1,4 +1,3 @@
-class_name OliveTreeView
 extends Node2D
 
 
@@ -26,14 +25,14 @@ func _on_olives_amount_changed(value: int, old_value: int):
 
 func _update_visuals(value: int):
 	$Label.text = "%s" % value
-	if value == 0:
-		# TODO: Show empty tree
-		$Sprite2D.modulate = Color.WHITE.darkened(.5)
-	elif value <= 5:
-		$Sprite2D.modulate = Color.WHITE.darkened(.25)
+	if value < 10:
+		$Sprite2D.frame = 3
+	elif value < 15:
+		$Sprite2D.frame = 2
+	elif value < 25:
+		$Sprite2D.frame = 1
 	else:
-		# TODO: Show full tree
-		$Sprite2D.modulate = Color.WHITE
+		$Sprite2D.frame = 0
 
 func _on_olives_amount_change_failed():
 	if current_tween and current_tween.is_running():

@@ -4,21 +4,77 @@
 [ext_resource type="Script" uid="uid://c74c4jlxg4wv1" path="res://boiling/boiling_station_view.gd" id="1_rhyhh"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="2_ev050"]
 [ext_resource type="Script" uid="uid://dntnxsnbpww2" path="res://boiling/boiling_station_heating_incrementer.gd" id="2_fq6gp"]
+[ext_resource type="Texture2D" uid="uid://cqvxj3ylb1wmb" path="res://0_sprites/scaled_down/Fire.png" id="3_aso6l"]
 [ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="5_ccy1n"]
+[ext_resource type="Texture2D" uid="uid://dhiwc4n8rkhea" path="res://0_sprites/scaled_down/Barrelrow.png" id="6_t80uk"]
 
 [sub_resource type="Curve" id="Curve_fq6gp"]
 _data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_fvl80"]
-offsets = PackedFloat32Array(0.18694362)
-colors = PackedColorArray(0.8509804, 0.7607843, 0.63529414, 1)
+[sub_resource type="Animation" id="Animation_aso6l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OilBarrelSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -54)]
+}
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fq6gp"]
-gradient = SubResource("Gradient_fvl80")
+[sub_resource type="Animation" id="Animation_t80uk"]
+resource_name = "boiling_station_idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OilBarrelSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -54), Vector2(2, -54), Vector2(1, -54), Vector2(2, -54), Vector2(1, -54)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8he7g"]
+_data = {
+&"RESET": SubResource("Animation_aso6l"),
+&"boiling_station_idle": SubResource("Animation_t80uk")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvmb7"]
-size = Vector2(64, 64)
+size = Vector2(77, 121)
 
 [node name="BoilingStation" type="Node2D" unique_id=1758307242]
 script = ExtResource("1_fvl80")
@@ -28,7 +84,9 @@ script = ExtResource("2_fq6gp")
 accelleration_curve = SubResource("Curve_fq6gp")
 
 [node name="BoilingStationView" type="Sprite2D" parent="." unique_id=396679798]
-texture = SubResource("GradientTexture2D_fq6gp")
+texture = ExtResource("3_aso6l")
+hframes = 2
+vframes = 3
 script = ExtResource("1_rhyhh")
 
 [node name="Label" type="RichTextLabel" parent="BoilingStationView" unique_id=715288455]
@@ -39,21 +97,34 @@ offset_bottom = 66.0
 theme = ExtResource("2_ev050")
 text = "Boiling station"
 fit_content = true
+autowrap_mode = 0
 
 [node name="State" type="RichTextLabel" parent="BoilingStationView" unique_id=1571099781]
 offset_left = -100.0
-offset_top = -66.0
+offset_top = -125.0
 offset_right = 99.0
-offset_bottom = -32.0
+offset_bottom = -91.0
 size_flags_horizontal = 3
 mouse_filter = 2
 theme = ExtResource("2_ev050")
 text = "Empty"
 fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="OilBarrelSprite" type="Sprite2D" parent="BoilingStationView" unique_id=1482194956]
+position = Vector2(0, -54)
+texture = ExtResource("6_t80uk")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BoilingStationView" unique_id=2127368594]
+libraries/ = SubResource("AnimationLibrary_8he7g")
+autoplay = &"boiling_station_idle"
 
 [node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("5_ccy1n")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=98707497]
+position = Vector2(-0.5, -28.5)
 shape = SubResource("RectangleShape2D_lvmb7")

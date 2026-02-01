@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dw2jdl2usdqx8" path="res://olive_collection/olive_tree.gd" id="1_yq5ov"]
 [ext_resource type="Script" uid="uid://bsrrm7dn5741w" path="res://olive_collection/olive_tree_replenisher.gd" id="2_5d438"]
-[ext_resource type="PackedScene" uid="uid://be0ple86o827j" path="res://olive_collection/olive_tree_view.tscn" id="2_8vonl"]
 [ext_resource type="PackedScene" uid="uid://bswejc7ynxy08" path="res://click_input_area.tscn" id="3_fxmnw"]
+[ext_resource type="Script" uid="uid://qjmxvvct6rit" path="res://olive_collection/olive_tree_view.gd" id="3_jlggk"]
+[ext_resource type="Texture2D" uid="uid://b5ppvalpe6wjy" path="res://0_sprites/scaled_down/Olive_Tree.png" id="4_bc7sk"]
+[ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="5_ul1kf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gya4e"]
-size = Vector2(64, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlggk"]
+size = Vector2(177, 63)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jlggk"]
+radius = 162.15117
 
 [node name="OliveTree" type="Node2D" unique_id=1680221023]
 script = ExtResource("1_yq5ov")
@@ -16,9 +21,33 @@ script = ExtResource("2_5d438")
 
 [node name="Timer" type="Timer" parent="OliveTreeReplenisher" unique_id=1203626877]
 
-[node name="OliveTreeView" parent="." unique_id=202196002 instance=ExtResource("2_8vonl")]
+[node name="OliveTreeView" type="Node2D" parent="." unique_id=202196002]
+script = ExtResource("3_jlggk")
+
+[node name="Sprite2D" type="Sprite2D" parent="OliveTreeView" unique_id=1564127246]
+texture = ExtResource("4_bc7sk")
+offset = Vector2(0, -1)
+hframes = 3
+vframes = 2
+
+[node name="Label" type="RichTextLabel" parent="OliveTreeView" unique_id=750236965]
+offset_left = -32.0
+offset_top = 172.0
+offset_right = 32.0
+offset_bottom = 236.0
+mouse_filter = 2
+theme = ExtResource("5_ul1kf")
+text = "0"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("3_fxmnw")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=1674715558]
-shape = SubResource("RectangleShape2D_gya4e")
+position = Vector2(5.5, 141.5)
+shape = SubResource("RectangleShape2D_jlggk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClickInputArea" unique_id=1001266460]
+position = Vector2(5, -18)
+shape = SubResource("CircleShape2D_jlggk")

@@ -4,23 +4,74 @@
 [ext_resource type="PackedScene" uid="uid://dlidue5gocvyw" path="res://travel/travel_incrementer.tscn" id="2_3rmvk"]
 [ext_resource type="Script" uid="uid://bqj7jm8xew4wc" path="res://oil_refinery/oil_barrel_transporter_view.gd" id="2_yvl00"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="3_dre8e"]
+[ext_resource type="Texture2D" uid="uid://dhiwc4n8rkhea" path="res://0_sprites/scaled_down/Barrelrow.png" id="4_op1vi"]
 [ext_resource type="Script" uid="uid://obq83lr7pjam" path="res://click_input_area.gd" id="5_ijnsq"]
 
 [sub_resource type="Curve" id="Curve_3rmvk"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Gradient" id="Gradient_k3fiu"]
-offsets = PackedFloat32Array(0.9792285)
-colors = PackedColorArray(0.8509804, 0.7607843, 0.63529414, 1)
+[sub_resource type="Animation" id="Animation_novdw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dre8e"]
-gradient = SubResource("Gradient_k3fiu")
+[sub_resource type="Animation" id="Animation_56cbl"]
+resource_name = "oil_barrel_flipping"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 12, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_3yp8q"]
+resource_name = "oil_barrel_rolling"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_suari"]
+_data = {
+&"RESET": SubResource("Animation_novdw"),
+&"oil_barrel_flipping": SubResource("Animation_56cbl"),
+&"oil_barrel_rolling": SubResource("Animation_3yp8q")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dre8e"]
 size = Vector2(64, 64)
 
 [node name="OilBarrelTransporter" type="PathFollow2D" unique_id=117764608]
+rotates = false
+loop = false
 script = ExtResource("1_jb4rr")
 
 [node name="TravelIncrementer" parent="." unique_id=912653014 instance=ExtResource("2_3rmvk")]
@@ -30,7 +81,9 @@ accelleration_curve = SubResource("Curve_3rmvk")
 script = ExtResource("2_yvl00")
 
 [node name="Sprite2D" type="Sprite2D" parent="OilBarrelTransporterView" unique_id=1265704392]
-texture = SubResource("GradientTexture2D_dre8e")
+texture = ExtResource("4_op1vi")
+hframes = 4
+vframes = 4
 
 [node name="BarrelLabel" type="RichTextLabel" parent="OilBarrelTransporterView" unique_id=1484439505]
 offset_left = -32.0
@@ -53,6 +106,9 @@ text = "0"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OilBarrelTransporterView" unique_id=638154634]
+libraries/ = SubResource("AnimationLibrary_suari")
 
 [node name="ClickInputArea" type="Area2D" parent="." unique_id=290085439]
 script = ExtResource("5_ijnsq")

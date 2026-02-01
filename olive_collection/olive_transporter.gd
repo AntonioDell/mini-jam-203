@@ -27,7 +27,7 @@ func _setup_travel():
 	progress_ratio = travel.path_travelled
 
 func _setup_children():
-	$OliveTransporterView.setup(olives, travel)
+	$OliveTransporterView.setup(olives, travel, controller)
 	$TravelIncrementer.setup(travel, time_to_arrival)
 	$ClickInputArea.input_area_clicked.connect(_on_transporter_clicked)
 

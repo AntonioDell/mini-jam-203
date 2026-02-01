@@ -14,6 +14,9 @@ func setup(health: HolderResource, travel: TravelResource):
 	health.amount_changed.connect(func(_x): _update_display())
 	_update_display()
 
+func start_damaging():
+	$AnimationPlayer.play("attacker_damaging")
+
 
 func _update_display():
 	$HealthLabel.text = str(health.amount)

@@ -31,6 +31,7 @@ func _setup_travel():
 
 func _on_travel_arrived(_x: bool):
 	controller.attacker_arrived(health)
+	$AttackerView.start_damaging()
 	$WallDamager.start_damaging()
 
 func _on_health_changed(_x: int):
