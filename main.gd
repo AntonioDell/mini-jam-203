@@ -24,6 +24,7 @@ func _load_level():
 	add_child(level_screen)
 	level_screen.main_menu_button_pressed.connect(_load_title_screen)
 	level_screen.game_lost.connect(_on_game_lost)
+	level_screen.game_won.connect(_on_game_won)
 
 func _load_title_screen():
 	if get_child_count() > 0:
@@ -42,3 +43,14 @@ func _on_game_lost(score: int):
 	credits_screen.score = score
 	credits_screen.play_again_button_pressed.connect(_load_level)
 	add_child(credits_screen)
+
+func _on_game_won(score: int):
+	if get_child_count() > 0:
+		remove_child(get_child(0))
+	
+	var credits_screen: Credits = credits_screen_scene.instantiate()
+	credits_screen.score = score
+	credits_screen.won = true
+	credits_screen.play_again_button_pressed.connect(_load_level)
+	add_child(credits_screen)
+	

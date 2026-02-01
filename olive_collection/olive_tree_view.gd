@@ -39,6 +39,6 @@ func _on_olives_amount_change_failed():
 		current_tween.custom_step(.55)
 		current_tween.kill()
 	current_tween = create_tween()
-	current_tween.tween_property(sprite, "self_modulate", Color.RED, .25)
+	current_tween.tween_property(sprite, "self_modulate", Color.LIGHT_GRAY, .25)
 	current_tween.tween_property(sprite, "self_modulate", Color.WHITE, .25)
 	

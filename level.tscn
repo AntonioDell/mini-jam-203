@@ -16,15 +16,18 @@
 [ext_resource type="PackedScene" uid="uid://rk807chw8e65" path="res://oil_refinery/oil_refinery.tscn" id="7_n6hdu"]
 [ext_resource type="PackedScene" uid="uid://ci4gdrt0lv6yn" path="res://boiling/boiling_station.tscn" id="9_8cye3"]
 [ext_resource type="PackedScene" uid="uid://cyo02kph1qupo" path="res://wall/wall.tscn" id="10_8cye3"]
-[ext_resource type="Texture2D" uid="uid://ctf550oou2nhh" path="res://0_sprites/original/CastleFrame.png" id="12_u3yai"]
 [ext_resource type="PackedScene" uid="uid://yo81i4nregxs" path="res://wall/wall_oil_pour.tscn" id="13_8b0r0"]
-[ext_resource type="Texture2D" uid="uid://bjy88ph5ltjpp" path="res://0_sprites/original/FarmFrame.png" id="13_fj6e6"]
+[ext_resource type="Texture2D" uid="uid://mvsdkg5owodt" path="res://0_sprites/original/Bg.png" id="14_mleqk"]
+[ext_resource type="Texture2D" uid="uid://c3acg1jj14cps" path="res://0_sprites/original/floor_2.png" id="14_yjxuc"]
+[ext_resource type="Texture2D" uid="uid://cc4kfukuu6pgk" path="res://0_sprites/original/FarmFrame_1.png" id="16_6btg4"]
 [ext_resource type="Theme" uid="uid://cnjgl72dvtjf4" path="res://theme.tres" id="17_fedht"]
 [ext_resource type="AudioStream" uid="uid://gxx2k4cag041" path="res://1_sound/enemyhit1.mp3" id="18_ilwjd"]
 [ext_resource type="AudioStream" uid="uid://bjds6c84xokwq" path="res://1_sound/enemyhit2.mp3" id="19_y3bce"]
 [ext_resource type="AudioStream" uid="uid://bosmj0khnv3v0" path="res://1_sound/enemyhit3.mp3" id="20_u3yai"]
 [ext_resource type="AudioStream" uid="uid://cch4m3531fkpg" path="res://1_sound/enemyhit4.mp3" id="21_fj6e6"]
+[ext_resource type="Texture2D" uid="uid://bwdo77nwhty3" path="res://0_sprites/original/CastleHill.png" id="21_hvubb"]
 [ext_resource type="Script" uid="uid://d2plc2i5sqm57" path="res://camera_target.gd" id="25_fj6e6"]
+[ext_resource type="Texture2D" uid="uid://bgfdr2q2n8mxq" path="res://0_sprites/original/rockwall_1.png" id="28_hvubb"]
 
 [sub_resource type="Gradient" id="Gradient_f2txt"]
 offsets = PackedFloat32Array(0.8429561)
@@ -58,27 +61,27 @@ point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_8cye3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1748, 839, 0, 0, 0, 0, 2232, 887)
+"points": PackedVector2Array(0, 0, 0, 0, 1748, 839, 0, 0, 0, 0, 2172.0835, 881.0703, 0, 0, 0, 0, 2297, 786)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_h6smj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2891, 1108, 0, 0, 0, 0, 2694, 932, 0, 0, 0, 0, 2110, 835, 0, 0, 0, 0, 1856, 832)
+"points": PackedVector2Array(0, 0, 0, 0, 2891, 1108, 0, 0, 0, 0, 2694, 932, 0, 0, 0, 0, 2310, 867, 0, 0, 0, 0, 2020, 851)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_v5j5c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2471, 1099, 0, 0, 0, 0, 2323, 973, 0, 0, 0, 0, 2035, 904, 0, 0, 0, 0, 1815, 901)
+"points": PackedVector2Array(0, 0, 0, 0, 2736, 1098, 0, 0, 0, 0, 2634, 1025, 0, 0, 0, 0, 2429, 949, 0, 0, 0, 0, 1961, 916)
 }
 point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_5pxul"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3058, 1118, 0, 0, 0, 0, 2672, 813, 0, 0, 0, 0, 2104, 766, 0, 0, 0, 0, 1881, 775)
+"points": PackedVector2Array(0, 0, 0, 0, 3042, 1094, 0, 0, 0, 0, 2638, 840, 0, 0, 0, 0, 2102, 795)
 }
-point_count = 4
+point_count = 3
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2h3vt"]
 random_pitch = 1.0594631
@@ -176,15 +179,42 @@ text = "0"
 fit_content = true
 autowrap_mode = 0
 
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/MarginContainer" unique_id=1218123544]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/MarginContainer/PanelContainer" unique_id=436754590]
+layout_mode = 2
+
+[node name="WaveLabel" type="RichTextLabel" parent="CanvasLayer/UI/MarginContainer/PanelContainer/HBoxContainer" unique_id=1954958272]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Wave:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="WaveCount" type="RichTextLabel" parent="CanvasLayer/UI/MarginContainer/PanelContainer/HBoxContainer" unique_id=1113716435]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "1"
+fit_content = true
+autowrap_mode = 0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=34172086]
 process_mode = 3
 stream = ExtResource("4_fj6e6")
+volume_db = -2.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
 
-[node name="GameController" parent="." unique_id=1661171547 node_paths=PackedStringArray("attacker_controller") instance=ExtResource("2_v5j5c")]
+[node name="GameController" parent="." unique_id=1661171547 node_paths=PackedStringArray("attacker_controller", "wave_controller") instance=ExtResource("2_v5j5c")]
 attacker_controller = NodePath("../AttackerController")
+wave_controller = NodePath("../WaveController")
 
 [node name="AttackerController" parent="." unique_id=726532179 node_paths=PackedStringArray("attacker_pain_audio") instance=ExtResource("2_aicyk")]
 attacker_pain_audio = NodePath("../AttackerPainAudio")
@@ -209,17 +239,18 @@ metadata/_edit_lock_ = true
 [node name="Background" type="Node2D" parent="." unique_id=76746008]
 metadata/_edit_lock_ = true
 
-[node name="CastleFrame" type="Sprite2D" parent="Background" unique_id=1846778211]
-position = Vector2(1910, 0)
-texture = ExtResource("12_u3yai")
-centered = false
-metadata/_edit_lock_ = true
-
-[node name="FarmFrame" type="Sprite2D" parent="Background" unique_id=1373786754]
-texture = ExtResource("13_fj6e6")
-centered = false
+[node name="Bg" type="Sprite2D" parent="Background" unique_id=2072365656]
+position = Vector2(2880, 540)
+texture = ExtResource("14_mleqk")
 flip_h = true
-metadata/_edit_lock_ = true
+
+[node name="Ground1" type="Sprite2D" parent="Background" unique_id=1327933846]
+position = Vector2(2870, 825)
+texture = ExtResource("14_yjxuc")
+
+[node name="FarmFrame1" type="Sprite2D" parent="Background" unique_id=1873876738]
+texture = ExtResource("16_6btg4")
+centered = false
 
 [node name="OliveTree1" parent="." unique_id=1680221023 instance=ExtResource("2_vonw3")]
 position = Vector2(498, 694)
@@ -240,16 +271,25 @@ curve = SubResource("Curve2D_n6hdu")
 position = Vector2(1112, 873)
 
 [node name="OilRefinery" parent="." unique_id=511384656 instance=ExtResource("7_n6hdu")]
-position = Vector2(1662, 882)
+position = Vector2(1662, 774)
 
 [node name="OilBarrelTransporterPath" type="Path2D" parent="." unique_id=440225832]
 curve = SubResource("Curve2D_8cye3")
 
 [node name="BoilingStation" parent="." unique_id=1758307242 instance=ExtResource("9_8cye3")]
-position = Vector2(2336, 824)
+position = Vector2(2296, 840)
 
 [node name="Wall" parent="." unique_id=2078438762 instance=ExtResource("10_8cye3")]
-position = Vector2(3074, 291)
+position = Vector2(3068, 268)
+
+[node name="CastleHill" type="Sprite2D" parent="." unique_id=2081966718]
+position = Vector2(3050, 665)
+texture = ExtResource("21_hvubb")
+
+[node name="Rockwall1" type="Sprite2D" parent="." unique_id=892834518]
+position = Vector2(2642, 806)
+scale = Vector2(0.36235252, 0.36235243)
+texture = ExtResource("28_hvubb")
 
 [node name="AttackerPath1" type="Path2D" parent="." unique_id=1280330733]
 position = Vector2(777, 67)
@@ -270,7 +310,7 @@ volume_db = 1.0
 bus = &"Sfx"
 
 [node name="WallOilPour" parent="." unique_id=1221194213 instance=ExtResource("13_8b0r0")]
-position = Vector2(3075, 478)
+position = Vector2(3071, 476)
 
 [node name="CameraTarget" type="Node2D" parent="." unique_id=1589072603]
 position = Vector2(959, 540)
@@ -287,3 +327,5 @@ drag_horizontal_enabled = true
 drag_left_margin = 0.8
 drag_right_margin = 0.8
 editor_draw_drag_margin = true
+
+[node name="Timer" type="Timer" parent="CameraTarget" unique_id=1211243562]

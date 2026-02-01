@@ -2,7 +2,7 @@ class_name Wall
 extends Node2D
 
 
-@export var health := HolderResource.new(100)
+@export var health := HolderResource.new(250)
 @export var max_flow_rate := 10
 @export var time_to_max_flow_rate := 5.0
 

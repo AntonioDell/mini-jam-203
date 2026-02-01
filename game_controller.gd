@@ -3,9 +3,11 @@ extends Node
 
 
 signal game_lost(score: int)
+signal game_won(score: int)
 
 
 @export var attacker_controller: AttackerController
+@export var wave_controller: WaveController
 
 var score: HolderResource = HolderResource.new()
 var loose_condition: HolderResource
@@ -22,6 +24,8 @@ func _ready():
 	score.amount_changed.connect(func(amount: int):
 		%ScoreCount.text = str(amount)
 	)
+	wave_controller.next_wave_started.connect(_on_next_wave_started)
+	wave_controller.all_waves_done.connect(_on_all_waves_done)
 
 func _on_loose_condition_amount_changed(amount: int):
 	if amount == 0:
@@ -32,3 +36,9 @@ func _loose():
 
 func _increase_score():
 	score.amount += 1
+
+func _on_next_wave_started(wave: int):
+	%WaveCount.text = str(wave)
+
+func _on_all_waves_done():
+	game_won.emit(score.amount)

@@ -39,9 +39,21 @@ layout_mode = 2
 theme_override_constants/separation = 100
 
 [node name="ThankYouLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer" unique_id=764356948]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"Title"
 text = "Thank you for playing!"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CongratulationsLabel" type="RichTextLabel" parent="UI/PanelContainer/CenterContainer/VBoxContainer" unique_id=1859548420]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Title"
+text = "You defeated the evil corporation!
+Thanks, take some olive oil..."
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1

@@ -12,7 +12,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3yxg"]
-size = Vector2(299, 416)
+size = Vector2(363, 488)
 
 [node name="Wall" type="Node2D" unique_id=2078438762]
 script = ExtResource("1_sef87")
@@ -22,16 +22,17 @@ script = ExtResource("2_1w5xe")
 accelleration_curve = SubResource("Curve_1w5xe")
 
 [node name="WallView" type="Sprite2D" parent="." unique_id=363176901]
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_rtv6b")
 hframes = 3
 vframes = 3
 script = ExtResource("3_8s4k5")
 
 [node name="PanelContainer" type="PanelContainer" parent="WallView" unique_id=1732166515]
-offset_left = -87.0
-offset_top = -252.0
-offset_right = 92.0
-offset_bottom = -180.0
+offset_left = -347.5
+offset_top = 35.0
+offset_right = -168.5
+offset_bottom = 107.0
 theme = ExtResource("3_qswlj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WallView/PanelContainer" unique_id=2143116091]
@@ -87,5 +88,5 @@ vertical_alignment = 1
 [node name="ClickInputArea" parent="." unique_id=719354934 instance=ExtResource("2_6wk7l")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickInputArea" unique_id=308128724]
-position = Vector2(-2.5, 29)
+position = Vector2(-2.5, 34)
 shape = SubResource("RectangleShape2D_k3yxg")
